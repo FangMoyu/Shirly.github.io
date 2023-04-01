@@ -38,24 +38,6 @@
   </url>
   
   <url>
-    <loc>https://fangmoyu.github.io/live2d/model/tia/model.json</loc>
-    
-    <lastmod>2023-04-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://fangmoyu.github.io/live2d/message.json</loc>
-    
-    <lastmod>2023-04-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://fangmoyu.github.io/Gallery/index.html</loc>
     
     <lastmod>2023-04-01</lastmod>
