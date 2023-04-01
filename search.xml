@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>欢迎</title>
+      <link href="/Shirly.github.io/2023/03/28/%E6%AC%A2%E8%BF%8E/"/>
+      <url>/Shirly.github.io/2023/03/28/%E6%AC%A2%E8%BF%8E/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一些简单的介绍和说明"><a href="#一些简单的介绍和说明" class="headerlink" title="一些简单的介绍和说明:"></a>一些简单的介绍和说明:</h1><p>首先感谢你访问我的博客😁，<br>当前博客的构建还只是一个雏形，未来可能会更新一些日常和我变成遇到的一些问题的文档。<br>做这个博客的初衷呢，主要是最近后端的学习一直摆烂，Spring boot视频里的原码看的我头秃！但我除了做笔记啥也干不了，严重消磨了我的热情，但是碍于前端知识的匮乏，不想花太长时间做一个页面，却又急于想要出一个东西，于是就做了这个博客。<br>（还有，github抽风是真的很讨厌！！！）</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;测试代码&quot;</span>);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
