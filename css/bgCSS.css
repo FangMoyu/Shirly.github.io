@@ -1,0 +1,8 @@
+body {
+   cursor: url("https://cdn.jsdelivr.net/gh/xlenco/JS-X@main/mouse/normal.cur"), default;
+ }
+ a,
+ img,
+ button {
+   cursor: url("https://cdn.jsdelivr.net/gh/xlenco/JS-X@main/mouse/link.cur"), default !important;
+ }
