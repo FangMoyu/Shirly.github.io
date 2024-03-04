@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>缓解游戏画面卡死，显卡掉驱动问题 | 摸鱼的老方</title><meta name="author" content="老方"><meta name="copyright" content="老方"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="实际上并没有解决，只是缓解了555">
+<meta property="og:type" content="article">
+<meta property="og:title" content="缓解游戏画面卡死，显卡掉驱动问题">
+<meta property="og:url" content="https://fangmoyu.github.io/2024/02/16/%E6%97%A5%E5%B8%B8%E5%B0%8F%E8%AE%B0/%E6%B8%B8%E6%88%8F%E7%94%BB%E9%9D%A2%E5%8D%A1%E6%AD%BB%20Nvddmkm%200%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:site_name" content="摸鱼的老方">
+<meta property="og:description" content="实际上并没有解决，只是缓解了555">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fangmoyu.github.io/image/animaImage/7.png">
+<meta property="article:published_time" content="2024-02-16T13:49:27.000Z">
+<meta property="article:modified_time" content="2024-03-04T01:23:23.820Z">
+<meta property="article:author" content="老方">
+<meta property="article:tag" content="博客，老方">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fangmoyu.github.io/image/animaImage/7.png"><link rel="shortcut icon" href="/Shirly.github.io/img/favicon.png"><link rel="canonical" href="https://fangmoyu.github.io/2024/02/16/%E6%97%A5%E5%B8%B8%E5%B0%8F%E8%AE%B0/%E6%B8%B8%E6%88%8F%E7%94%BB%E9%9D%A2%E5%8D%A1%E6%AD%BB%20Nvddmkm%200%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/Shirly.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/Shirly.github.io/',
+  algolia: undefined,
+  localSearch: {"path":"/Shirly.github.io/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 老方","link":"链接: ","source":"来源: 摸鱼的老方","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '缓解游戏画面卡死，显卡掉驱动问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-04 09:23:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="./css/bgCSS.css"><link rel="stylesheet" href="./css/transpancy.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/Shirly.github.io/./image/MyAvatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/Shirly.github.io/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/Shirly.github.io/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/Shirly.github.io/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Shirly.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Shirly.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/Shirly.github.io/about/"><i class="fa-fw fa fa-th-list"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/Shirly.github.io/./image/animaImage/7.png')"><nav id="nav"><span id="blog-info"><a href="/Shirly.github.io/" title="摸鱼的老方"><span class="site-name">摸鱼的老方</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Shirly.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Shirly.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/Shirly.github.io/about/"><i class="fa-fw fa fa-th-list"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">缓解游戏画面卡死，显卡掉驱动问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-02-16T13:49:27.000Z" title="发表于 2024-02-16 21:49:27">2024-02-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-04T01:23:23.820Z" title="更新于 2024-03-04 09:23:23">2024-03-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="缓解游戏画面卡死，显卡掉驱动问题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="游戏画面卡死-Nvlddmkm-0-问题解决方案"><a href="#游戏画面卡死-Nvlddmkm-0-问题解决方案" class="headerlink" title="游戏画面卡死 Nvlddmkm 0 问题解决方案"></a>游戏画面卡死 Nvlddmkm 0 问题解决方案</h1><h2 id="情况说明"><a href="#情况说明" class="headerlink" title="情况说明"></a>情况说明</h2><p>我的笔记本是拯救者 y7000p 2020 款，近半年来玩游戏从最开始个别游戏时不时画面卡死但是鼠标点击仍有声音到后面各种游戏都出现卡死闪退，甚至有的游戏直接打开就闪退，通过查看事件查看器，可以发现每当出现上述情况都会有 nvlddmkm 事件 0，采取了各种方法，现已解决。</p>
+<p><strong>情况描述：</strong></p>
+<ol>
+<li>游戏画面卡死，但鼠标点击仍然有声音</li>
+<li>游戏直接闪退，查看事件查看器发现报错 nvlddmkm 事件 0</li>
+</ol>
+<p><img src="https://fang-images.oss-cn-fuzhou.aliyuncs.com/images/202402202330341.png" alt="image-20240220231446517"></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>尝试过各种网上的方法，包括但不限于升级驱动、重新安装旧版驱动、修改电源配置等，全都无效。</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p><strong>使用微星小飞机降低核心频率</strong></p>
+<p><a target="_blank" rel="noopener" href="https://msi-afterburner.en.softonic.com/">MSI Afterburner - Download (softonic.com)</a></p>
+<p>​	有一定的效果，但效果一般，甚至用久了感觉效果越来越差。</p>
+<p><img src="https://fang-images.oss-cn-fuzhou.aliyuncs.com/images/202402202330342.png" alt="image-20240220231738624"></p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p><strong>降低游戏画质</strong></p>
+<p>显卡频率过高就会导致卡死闪退情况，可以选择降低画质来解决。</p>
+<blockquote>
+<p> 挺影响游戏体验，我买了游戏本就是为了爽的，结果还得降画质</p>
+</blockquote>
+<h3 id="方法三-（成功解决我的情况）"><a href="#方法三-（成功解决我的情况）" class="headerlink" title="方法三 （成功解决我的情况）"></a>方法三 （成功解决我的情况）</h3><p><strong>清灰</strong> ，没错，就是清灰，我在游戏时通过联想电脑管家观察到，每当我游戏闪退的一瞬间，我的 CPU 温度和显卡温度都会突然飙增到 90 摄氏度以上。同时 CPU 和显卡的占用率总有一个瞬间就 100%，然后游戏闪退之后又会突然 0%，</p>
+<blockquote>
+<p>我通过在游戏时监测 CPU 和显卡的温度和占用情况：</p>
+</blockquote>
+<p><img src="https://fang-images.oss-cn-fuzhou.aliyuncs.com/images/202402202330343.png" alt="image-20240220232701031"></p>
+<p>于是我想起来我这两年多都没清灰的电脑，会不会显卡驱动有啥保护机制，过热就会导致掉驱动。于是我就直接背着包去联想店里清灰了。</p>
+<p>清灰回来之后，打游戏显卡基本稳定在 70 度以下了，而 CPU 也能保持在 70 度左右变动。亲测我在游玩帕鲁、怪猎、大表哥 等游戏 2h 内都没有再闪退，至于 2h 以上我目前还未测试。</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/Shirly.github.io/./image/animaImage/7.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E6%99%BA%E8%83%BD%20BI%20%E9%A1%B9%E7%9B%AE/" title="智能 BI 项目实现记录"><img class="cover" src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/Shirly.github.io/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">智能 BI 项目实现记录</div></div></a></div><div class="next-post pull-right"><a href="/Shirly.github.io/2023/12/08/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Spring%E5%8E%9F%E7%90%86%E4%B9%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%92%8CIOC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="循环依赖和 IOC 生命周期"><img class="cover" src="/Shirly.github.io/./image/22.png" onerror="onerror=null;src='/Shirly.github.io/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">循环依赖和 IOC 生命周期</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/Shirly.github.io/./image/MyAvatar.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">老方</div><div class="author-info__description">你好，欢迎访问我的博客，目前各项功能还在施工完善中，敬请期待</div></div><div class="card-info-data site-data is-center"><a href="/Shirly.github.io/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/Shirly.github.io/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/Shirly.github.io/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FangMoyu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/FangMoyu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://map.baidu.com" target="_blank" title="地图"><i class="fa-solid fa-location-dot"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B8%B8%E6%88%8F%E7%94%BB%E9%9D%A2%E5%8D%A1%E6%AD%BB-Nvlddmkm-0-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">游戏画面卡死 Nvlddmkm 0 问题解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%85%E5%86%B5%E8%AF%B4%E6%98%8E"><span class="toc-text">情况说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="toc-text">方法一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C"><span class="toc-text">方法二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89-%EF%BC%88%E6%88%90%E5%8A%9F%E8%A7%A3%E5%86%B3%E6%88%91%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%89"><span class="toc-text">方法三 （成功解决我的情况）</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8EHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 搭建博客教程"><img src="/Shirly.github.io/./image/3.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="Hexo 搭建博客教程"/></a><div class="content"><a class="title" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8EHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 搭建博客教程">Hexo 搭建博客教程</a><time datetime="2024-03-04T01:12:48.012Z" title="发表于 2024-03-04 09:12:48">2024-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E6%8E%A5%E5%8F%A3API%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0/" title="接口 API 开放平台笔记"><img src="/Shirly.github.io/./image/22.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="接口 API 开放平台笔记"/></a><div class="content"><a class="title" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E6%8E%A5%E5%8F%A3API%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0/" title="接口 API 开放平台笔记">接口 API 开放平台笔记</a><time datetime="2024-03-04T01:12:43.006Z" title="发表于 2024-03-04 09:12:43">2024-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E6%99%BA%E8%83%BD%20BI%20%E9%A1%B9%E7%9B%AE/" title="智能 BI 项目实现记录"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="智能 BI 项目实现记录"/></a><div class="content"><a class="title" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E6%99%BA%E8%83%BD%20BI%20%E9%A1%B9%E7%9B%AE/" title="智能 BI 项目实现记录">智能 BI 项目实现记录</a><time datetime="2024-03-04T01:12:31.966Z" title="发表于 2024-03-04 09:12:31">2024-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2024/02/16/%E6%97%A5%E5%B8%B8%E5%B0%8F%E8%AE%B0/%E6%B8%B8%E6%88%8F%E7%94%BB%E9%9D%A2%E5%8D%A1%E6%AD%BB%20Nvddmkm%200%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="缓解游戏画面卡死，显卡掉驱动问题"><img src="/Shirly.github.io/./image/animaImage/7.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="缓解游戏画面卡死，显卡掉驱动问题"/></a><div class="content"><a class="title" href="/Shirly.github.io/2024/02/16/%E6%97%A5%E5%B8%B8%E5%B0%8F%E8%AE%B0/%E6%B8%B8%E6%88%8F%E7%94%BB%E9%9D%A2%E5%8D%A1%E6%AD%BB%20Nvddmkm%200%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="缓解游戏画面卡死，显卡掉驱动问题">缓解游戏画面卡死，显卡掉驱动问题</a><time datetime="2024-02-16T13:49:27.000Z" title="发表于 2024-02-16 21:49:27">2024-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2023/12/08/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Spring%E5%8E%9F%E7%90%86%E4%B9%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%92%8CIOC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="循环依赖和 IOC 生命周期"><img src="/Shirly.github.io/./image/22.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="循环依赖和 IOC 生命周期"/></a><div class="content"><a class="title" href="/Shirly.github.io/2023/12/08/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Spring%E5%8E%9F%E7%90%86%E4%B9%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%92%8CIOC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="循环依赖和 IOC 生命周期">循环依赖和 IOC 生命周期</a><time datetime="2023-12-08T11:24:27.000Z" title="发表于 2023-12-08 19:24:27">2023-12-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/Shirly.github.io/./image/4.png')"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好，欢迎来到我的博客😊!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/Shirly.github.io/js/utils.js"></script><script src="/Shirly.github.io/js/main.js"></script><script src="/Shirly.github.io/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/Shirly.github.io/js/search/local-search.js"></script></div></body></html>

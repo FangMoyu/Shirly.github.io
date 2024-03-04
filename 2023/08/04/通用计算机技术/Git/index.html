@@ -1,0 +1,817 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><title>Git基本操作教程 | 摸鱼的老方</title><meta name="author" content="老方"><meta name="copyright" content="老方"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="老方的Git教学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git基本操作教程">
+<meta property="og:url" content="https://fangmoyu.github.io/2023/08/04/%E9%80%9A%E7%94%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/Git/index.html">
+<meta property="og:site_name" content="摸鱼的老方">
+<meta property="og:description" content="老方的Git教学">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://fangmoyu.github.io/image/animaImage/7.png">
+<meta property="article:published_time" content="2023-08-04T13:49:27.000Z">
+<meta property="article:modified_time" content="2023-08-04T08:25:35.924Z">
+<meta property="article:author" content="老方">
+<meta property="article:tag" content="博客，老方">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://fangmoyu.github.io/image/animaImage/7.png"><link rel="shortcut icon" href="/Shirly.github.io/img/favicon.png"><link rel="canonical" href="https://fangmoyu.github.io/2023/08/04/%E9%80%9A%E7%94%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/Git/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/Shirly.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/Shirly.github.io/',
+  algolia: undefined,
+  localSearch: {"path":"/Shirly.github.io/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":50},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 老方","link":"链接: ","source":"来源: 摸鱼的老方","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git基本操作教程',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-04 16:25:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="./css/bgCSS.css"><link rel="stylesheet" href="./css/transpancy.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/Shirly.github.io/./image/MyAvatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/Shirly.github.io/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/Shirly.github.io/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/Shirly.github.io/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Shirly.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Shirly.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/Shirly.github.io/about/"><i class="fa-fw fa fa-th-list"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/Shirly.github.io/./image/animaImage/7.png')"><nav id="nav"><span id="blog-info"><a href="/Shirly.github.io/" title="摸鱼的老方"><span class="site-name">摸鱼的老方</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/Shirly.github.io/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/archives/"><i class="fa-fw fas fa-archive"></i><span> 文档</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/Gallery/"><i class="fa-fw fas fa-images"></i><span> 图库</span></a></div><div class="menus_item"><a class="site-page" href="/Shirly.github.io/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Shirly.github.io/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/Shirly.github.io/about/"><i class="fa-fw fa fa-th-list"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Git基本操作教程</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-08-04T13:49:27.000Z" title="发表于 2023-08-04 21:49:27">2023-08-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-04T08:25:35.924Z" title="更新于 2023-08-04 16:25:35">2023-08-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Git基本操作教程"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Git介绍"><a href="#Git介绍" class="headerlink" title="Git介绍"></a>Git介绍</h1><p>​	Git 是目前世界上最先进的分布式版本控制系统。</p>
+<blockquote>
+<p>什么是版本控制系统？</p>
+</blockquote>
+<p>可以举一个例子：我们在编辑文案的时候时常需要修改文件，而如果我们希望将修改前的内容恢复，那么我们就需要先将原来的内容保存下来再修改。因此就会出现一个情况，就是我们保存的文件副本越来越多，当我们需要恢复文件内容的时候发现，一大堆的文件难以查找到确切的位置。当你希望把文档给同事进行编辑的时候，得把你的改动和他的改动进行合并，这个操作在内容十分庞大的文件中十分繁琐。</p>
+<p>于是，我们就希望有这么一个软件，它能帮助我们进行修改内容的记录，还能实现同事协作编辑。这样就可以避免了需要创建许多副本和内容合并的问题。</p>
+<h2 id="集中式版本控制系统和分布式版本控制系统"><a href="#集中式版本控制系统和分布式版本控制系统" class="headerlink" title="集中式版本控制系统和分布式版本控制系统"></a>集中式版本控制系统和分布式版本控制系统</h2><h3 id="集中式版本控制系统"><a href="#集中式版本控制系统" class="headerlink" title="集中式版本控制系统"></a>集中式版本控制系统</h3><p>集中式版本控制系统是通过一个中央服务器来统一管理所有用户提交的代码，用户需要从中央服务器中获取项目来进行开发工作。</p>
+<p><strong>优势和劣势：</strong></p>
+<p>集中式版本控制系统虽然实现了版本控制，它也能让多个用户协作来开发项目，用户也可以很轻松的看到其他用户的修改，但是，一旦中央服务器发生了故障，就会导致所有的用户都无法提交更新，在服务器恢复之前，任何人都无法协同工作。</p>
+<h3 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h3><p>分布式版本控制系统没有中央服务器，它可以让所有用户都拥有整个项目的代码，用户就可以在本机进行修改和版本控制，代码存储在远程库中，远程库是一个代码托管中心，所有用户可以把代码推送到远程库上。而用户若需要获取代码，可以从远程库上克隆代码到本机。</p>
+<p>若远程库服务器出现了故障，也可以直接到同事的电脑上获取代码，若是你已经提前克隆了代码，你仅仅只是在服务器故障的时间段中无法tui’s</p>
+<h2 id="Git-工作机制"><a href="#Git-工作机制" class="headerlink" title="Git 工作机制"></a>Git 工作机制</h2><p><img src="/Shirly.github.io/Git.assets/image-20230629170732473.png" alt="image-20230629170732473"></p>
+<p>解释：</p>
+<ol>
+<li><p><strong>工作区</strong></p>
+<p>用于存储代码的位置，相当于我们创建一个工程项目后的那个目录。我们可以对这个区域的代码进行更新。</p>
+</li>
+<li><p><strong>暂存区</strong></p>
+<p>工作区完成的代码需要添加到暂存区，暂存区可以临时存储我们在工作区添加的代码。暂存区的代码仍然可以删除。</p>
+</li>
+<li><p><strong>本地库</strong></p>
+<p>可以将暂存区的代码提交到本地库，代码提交到本地库后就会生成对应的版本，这个代码就无法再删除了。本地库中的代码是基于上一个版本的代码进行的更新。</p>
+</li>
+</ol>
+<h2 id="代码托管中心"><a href="#代码托管中心" class="headerlink" title="代码托管中心"></a>代码托管中心</h2><p>代码托管中心是基于网络服务器的远程代码仓库，一般我们称之为远程库。</p>
+<p>局域网：</p>
+<p>​	GitLab （自己公司可以搭建一个GitLab）</p>
+<p>互联网：</p>
+<p>​	GitHub (外网)</p>
+<p>​	Gitee  （国内平台）</p>
+<p><strong>代码提交到本地库后，可以再将本地库的代码推送到远程库</strong></p>
+<h1 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>不用多解释，直接搜索 git， 官网下载稳定版本就好。</p>
+<p>除了路径选择外，安装过程的全部选默认。</p>
+<p>安装完成后，可以查看一下git是否成功安装：</p>
+<p>打开 Git Bash：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629173525319.png" alt="image-20230629173525319"></p>
+<p>输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p>or：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230629173619596.png" alt="image-20230629173619596"></p>
+<p>显示版本即安装完成。</p>
+<h2 id="Git-常用命令"><a href="#Git-常用命令" class="headerlink" title="Git 常用命令"></a>Git 常用命令</h2><p>首次安装Git，要设置一下用户签名，否则无法正常提交代码。</p>
+<p>这里设置的用户签名和 GitHub 的账号没有任何关系。</p>
+<p>配置签名的作用：只是<strong>区分不同开发人员的身份</strong>。</p>
+<p><strong>设置用户名</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &lt;用户名&gt; </span><br></pre></td></tr></table></figure>
+
+<p><strong>设置邮箱</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &lt;邮箱&gt;</span><br></pre></td></tr></table></figure>
+
+<p>作为版本控制系统的客户端，每台客户机对版本库的所有提交操作，都需要注明操作者的身份。所以客户机首先需要进行自我身份的注册，即创建用户。</p>
+<p><strong>初始化本地库</strong></p>
+<p>我们在本地磁盘中任意新建一个文件夹，将其作为Git的本地库。</p>
+<p>我们在该目录下右击选择 Git Bash</p>
+<p>然后输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>即可实现初始化本地库</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629193614076.png" alt="image-20230629193614076"></p>
+<p>在该目录下就会生成一个 .git文件夹：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629193709212.png" alt="image-20230629193709212"></p>
+<p><strong>查看状态</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>我们对刚才创建的本地库调用一下：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629193915142.png" alt="image-20230629193915142"></p>
+<p>提示了没有任何提交。</p>
+<p>这个结果很显然，现在我们还没有提交代码到本地库呢。</p>
+<p>这里我们通过下述代码创建一个文本文件 hello，然后在里面输入一些内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim hello.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230629194502622.png" alt="image-20230629194502622"></p>
+<blockquote>
+<p>这里讲一下linux复制粘贴的方法：选中一行按两次y就是复制，然后按p粘贴。然后输入完文本后，按 ’shift‘ + ’:‘ 再输入wq保存退出文本。</p>
+</blockquote>
+<p>此时我们创建好文件后，再查看状态，即输入 git status：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629194702928.png" alt="image-20230629194702928"></p>
+<p>这里仍然有问题，但是我们的 hello.txt 文件已经被检测到了，但是 git 还未追踪文件。</p>
+<p><strong>添加暂存区</strong></p>
+<p>上面我们还未追踪 hello.txt，我们需要将该文件添加到暂存区：</p>
+<p>输入如下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add hello.txt</span><br></pre></td></tr></table></figure>
+
+<p>然后我们再 git status 看一下状态：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629195155552.png" alt="image-20230629195155552"></p>
+<p>本地库中仍然为空。但是这里的 hello.txt 变绿了，说明 git 已经对该文件进行追踪。但此时文件还未生成历史版本，仍然可以被删除。</p>
+<p><strong>删除暂存区文件</strong></p>
+<p>暂存区的内容是可以被删除的，上图给了我们对应的指令，这里我们调用下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">rm</span> --cached&lt;文件名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>删除后 ,hello.txt 又变红了：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629195515241.png" alt="image-20230629195515241"></p>
+<p>虽然被删除了，但是是删除的暂存区的文件，并不是工作区，因此，在资源管理器下的 hello.txt 仍然存在：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629195727055.png" alt="image-20230629195727055"></p>
+<p>这里将hello.txt从暂存区删除了，但为了接下来能够继续我们的学习，我们先将 hello.txt 添加到暂存区。</p>
+<p><strong>提交本地库</strong></p>
+<p>通过下述指令将暂存区内容提交本地库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &lt;<span class="string">&quot;message&quot;</span>&gt; hello.txt</span><br></pre></td></tr></table></figure>
+
+<p>提交后，若我们再查看一下状态：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230629200654405.png" alt="image-20230629200654405"></p>
+<p><strong>查看日志</strong></p>
+<p>查看版本信息日志命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230629200809767.png" alt="image-20230629200809767"></p>
+<p>可以看到版本号（这里的版本号是被<strong>简化</strong>后的），该版本的描述。</p>
+<p>查看更详细日志命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230629200928128.png" alt="image-20230629200928128"></p>
+<p>可以看到提交该文件的作者和时间，以及完整的版本号。</p>
+<h1 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h1><p>我们上面已经成功提交了 hello.txt 的第一个版本到本地库，现在，我们要修改这个文件：</p>
+<p>进入文件</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629201910747.png" alt="image-20230629201910747"></p>
+<p>在一第行加入一串2后保存退出：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629201954014.png" alt="image-20230629201954014"></p>
+<p>下面我们来看一下 git 的状态（git status）：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629202030190.png" alt="image-20230629202030190"></p>
+<p>又爆红了，这里给出的提示是 modified，说明我们修改了文件，我们如果要再次跟踪并提交，只需要再执行刚才的两条命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add hello.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&#x27;second commit&#x27;</span> hello.txt</span><br></pre></td></tr></table></figure>
+
+<p>这里的描述信息改成了第二次提交版本。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629202240393.png" alt="image-20230629202240393"></p>
+<p>这里提示我们一行增加，一行减少，指的是 git 将之前的第一行删除，改为我们新编写的内容添加进去。</p>
+<p>这里我们再查看一下日志（git reflog 或者 git log）:</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629202314120.png" alt="image-20230629202314120"></p>
+<p>可以看得出来， git 的指针已经成功更改为最新的 second commit 版本。</p>
+<blockquote>
+<p>这里我再修改一个内容，在第二行加入几个3，然后再提交一下。</p>
+</blockquote>
+<h1 id="版本穿梭"><a href="#版本穿梭" class="headerlink" title="版本穿梭"></a>版本穿梭</h1><p>当我们提交了几个版本之后，git 的指针总是指向最新提交的那个版本，但现实是我们有可能需要使用过去的版本，因此我们需要能够将 git 的指针指向过去提交过的版本。那么，我们该如何实现呢？</p>
+<p>使用下面的命名，我们就可以自由地选择版本号中穿梭了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 版本号</span><br></pre></td></tr></table></figure>
+
+<p>我在下图中将git从原本指向第三版本修改为指向第二版本。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629203508074.png" alt="image-20230629203508074"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629203644522.png" alt="image-20230629203644522"></p>
+<p>这里再查看日志，就会看到现在的git已经指向了第二个版本号了，</p>
+<p>并且，我们进行版本穿梭的行为也会记录在日志中。</p>
+<p><strong>在资源管理器中查看版本号</strong></p>
+<p>我们打开.git目录：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629203750574.png" alt="image-20230629203750574"></p>
+<p>这里的 HEAD 文件显示了当前的分支：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629203846705.png" alt="image-20230629203846705"></p>
+<p>我们打开 refs 目录，进入 heads 目录，里面有一个 master 文件（这里里就存储了当前 git 指向的版本对应的版本号）：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629203910093.png" alt="image-20230629203910093"></p>
+<p>用文本软件打开它：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629203941921.png" alt="image-20230629203941921"></p>
+<p>此时，你可以尝试将 hello.txt 和 master 文件同时用文本编辑器打开，然后再用上面的版本穿梭指令执行更换版本，你就会发现这两个文件里的内容会跟着你的版本修改而变更。</p>
+<h1 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h1><p>服务器运行模式：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629205133697.png" alt="image-20230629205133697"></p>
+<p>服务器分为多种：生产、测试、线上环境。不同任务的开发者通过不同的分支进行不同的工作。</p>
+<p>在版本控制过程中，同时推进多个任务，为每个任务，我们就可以创建每个任务的单独分支，使用分支意味着程序员可以把自己的工作从开发主线上分离开来，开发自己分支的时候，不会影响主线分支的运行。一个分支相当于一个单独的副本，底层是指针的引用。</p>
+<p>多个分支经过各自的测试提交直到稳定后，再合并到主线分支。</p>
+<p><strong>分支的好处</strong></p>
+<ol>
+<li>同时并行推进多个功能开发，提高并发效率。</li>
+<li>各个分支开发过程中，若某一个分支开发失败，不会对其他分支有任何影响。</li>
+</ol>
+<p>分支实际上都是指向具体版本记录的指针，当前所在的分支，其实是由HEAD决定的，所以创建分支的本质就是多创建一个指针。</p>
+<h2 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h2><p><strong>创建分支</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch 分支名</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>查看分支</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>切换分支</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 分支名</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>把指定分支合并到当前分支上</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge 分支名</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们先来查看一下分支：</p>
+<p>目前只有 master 分支</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629210015580.png" alt="image-20230629210015580"></p>
+<p>接下来我们创建一下分支：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629210119394.png" alt="image-20230629210119394"></p>
+<p>这里我们可以看到，两个分支的版本号都是相同的，说明分配到不同任务的开发者可以在各自的分支中拿到同样版本的代码。</p>
+<p>接下来，我们来切换一下分支，将当前的指向master的分支改成指向 hot-fix 分支上：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629210704377.png" alt="image-20230629210704377"></p>
+<p>我们可以查看一下分支，可以看到现在已经切换到 hot-fix分支了。</p>
+<p>然后我们在 hot-fix 分支下修改 hello.txt的内容（减少2和3的个数），提交，查看日志：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629211021426.png" alt="image-20230629211021426"></p>
+<p>可以看到指针已经指向 hot-fix分支，并显示提交日志</p>
+<p>同时资源管理器中我们的文件也发生了变化：</p>
+<p>出现了两个分支：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629211250384.png" alt="image-20230629211250384"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629211218314.png" alt="image-20230629211218314"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629211224382.png" alt="image-20230629211224382"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629211233104.png" alt="image-20230629211233104"></p>
+<p>两个分支对应的版本号是不同的。</p>
+<h2 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a><strong>分支合并</strong></h2><p><strong>正常合并</strong></p>
+<p>上面我们在不同的分支进行了各自的提交操作，从而在不同的分支上的 hello.txt 的版本是不同的，而我们最终是需要将它们合并在一起的。</p>
+<p>下面我们来合并一下分支：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge 分支名</span><br></pre></td></tr></table></figure>
+
+<p>这里的分支名是将选择的分支合并到当前的分支下，也就是用命令中的分支对应的版本来更新我们当前分支下的版本的内容。</p>
+<p>我们切换回master分支并合并 hot-fix 分支：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629211738089.png" alt="image-20230629211738089"></p>
+<p>然后我们查看一下 hello.txt 的内容：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230629211811369.png" alt="image-20230629211811369"></p>
+<p><strong>冲突合并</strong></p>
+<p>合并分支时，两个分支在同一个文件的同一个位置有两套完全不同的修改。Git无法替代我们决定使用哪一个，必须人为决定新代码的内容。</p>
+<p>我们先对两个分支的 hello.txt 都做一些修改。</p>
+<p>然后，我们套用上面的命令把 hot-fix合并到 master中，会发现它出现了错误，但是它会处于一个新的状态，master|merging，这样的情况下，我们可以再打开 hello.txt 页面，手动将我们需要的内容更新保存，并删除不需要的内容，最后提交即可。这时更新的是 master 这个分支。</p>
+<p>出现了冲突</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230630211213251.png" alt="image-20230630211213251"></p>
+<p>但是此刻我们已经进入了合并的状态：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230630211328957.png" alt="image-20230630211328957"></p>
+<p>我们只需要手动修改合并内容即可，进入hello.txt：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230630211347820.png" alt="image-20230630211347820"></p>
+<p>这里HEAD指的就是我们当前分支修改的内容。而下面被<code>=========</code> 分开的下半部分就是hot-fix修改的部分，</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230630211404075.png" alt="image-20230630211404075"></p>
+<p>因此我们只需要保留我们真正需要的部分，删除上面和下面的Hello Git!语句以及它标识分支的语句，让两个 test 语句留下后保存即可。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230630211611903.png" alt="image-20230630211611903"></p>
+<p>此时我们再查看状态：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230630211655791.png" alt="image-20230630211655791"></p>
+<p>我们只需要再次跟踪提交即可。</p>
+<blockquote>
+<p>注意，最后的提交不需要再指定文件名了。</p>
+</blockquote>
+<p><img src="/Shirly.github.io/Git.assets/image-20230630211755428.png" alt="image-20230630211755428"></p>
+<p>我们再来查看一下日志：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230630211809870.png" alt="image-20230630211809870"></p>
+<h1 id="团队协作"><a href="#团队协作" class="headerlink" title="团队协作"></a>团队协作</h1><p><strong>团队内部协作</strong></p>
+<p>机制如图：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701160018916.png" alt="image-20230701160018916"></p>
+<p>团队内成员可以自由地拉取代码和推送代码。并且可以将远程库克隆到自己的本地库中。</p>
+<p><strong>跨团队协作</strong></p>
+<p>机制如图：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701160509729.png" alt="image-20230701160509729"></p>
+<p>另一个团队的成员可以将主团队的代码传输自己的远程库B中，然后再通过克隆到自己的本地库，本地库经过修改之后再推送到自己的远程库，随后，需要向主团队的远程库发送推送请求，经过审核后可以推送给著团队的远程库A。</p>
+<h1 id="GitHub操作"><a href="#GitHub操作" class="headerlink" title="GitHub操作"></a>GitHub操作</h1><h2 id="远程库操作"><a href="#远程库操作" class="headerlink" title="远程库操作"></a>远程库操作</h2><p><strong>创建远程库</strong></p>
+<p>创建远程库很简单，登录GitHub后创建一个 repository 即可。最好将你上传的<strong>代码的目录名称与远程库名称一致</strong>。</p>
+<p><strong>创建别名</strong></p>
+<p>我们可以先查看一下别名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230701161503675.png" alt="image-20230701161503675"></p>
+<p>此时我们没有任何一个别名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add &lt;别名&gt; &lt;远程库地址&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230701161725049.png" alt="image-20230701161725049"></p>
+<p>下面我们再查看一下别名：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701161749334.png" alt="image-20230701161749334"></p>
+<p>fetch表示拉取，push表示推送。这里表示创建了两个别名，分别可以拉取和推送</p>
+<p><strong>Git推送到远程库</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程库别名&gt; &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230701163150095.png" alt="image-20230701163150095"></p>
+<p>可能会碰上443网络超时问题，解决方案是设置全局代理。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/636418854">解决 Github port 443 : Timed out - 知乎 (zhihu.com)</a></p>
+<p><strong>拉取代码到本地</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;远程库地址or远程库别名&gt; &lt;本地分支名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里我们在GitHub远程库上对文档进行修改（最后加一行1）：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701163506859.png" alt="image-20230701163506859"></p>
+<p>查看本地库：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701163634819.png" alt="image-20230701163634819"></p>
+<p>显然，我们的本地库是还未更新的，因此我们这里要拉取远程库的代码到本地库：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701163706744.png" alt="image-20230701163706744"></p>
+<p>再来看一下文件：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701163719178.png" alt="image-20230701163719178"></p>
+<p><strong>克隆远程仓库到本地</strong></p>
+<p>对于公共库，克隆代码是不需要登录账号的。直接指定地址即可。</p>
+<p>clone会做如下操作：</p>
+<ol>
+<li>拉取代码</li>
+<li>初始化本地库</li>
+<li>创建别名</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;克隆地址&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们创建一个新的文件夹：gitclone</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701164532004.png" alt="image-20230701164532004"></p>
+<p>打开目录后点开 git bash</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701164625497.png" alt="image-20230701164625497"></p>
+<p>复制远程库地址：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701164645302.png" alt="image-20230701164645302"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701164711083.png" alt="image-20230701164711083"></p>
+<p>可以在 gitclone 目录下看到克隆过来的 gitinit 项目：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701164802475.png" alt="image-20230701164802475"></p>
+<p>打开：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701164814841.png" alt="image-20230701164814841"></p>
+<p>我们查看一下克隆后的远程库别名：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701164851368.png" alt="image-20230701164851368"></p>
+<p>这里统一都叫origin</p>
+<h2 id="团队内协作实践"><a href="#团队内协作实践" class="headerlink" title="团队内协作实践"></a>团队内协作实践</h2><p>下面，我们希望能够将克隆的代码修改后提交给远程库。</p>
+<p>我们的团队成员在自己的本地克隆并完成了对应的代码更新，他需要将新的代码推送到团队的远程库中，调用下述命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;远程库地址&gt; &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>但是，直接提交会被拒绝：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701192958209.png" alt="image-20230701192958209"></p>
+<p>这是因为这位成员还未得到授权，我们登录拥有权限的账户给当前账户权限：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701194059232.png" alt="image-20230701194059232"></p>
+<p>搜索账户名称，然后确认。</p>
+<p>点击复制：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701194130113.png" alt="image-20230701194130113"></p>
+<p>让团队成员访问复制的页面然后同一协作即可。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701194252191.png" alt="image-20230701194252191"></p>
+<p>现在，你就可以再次提交试试了。</p>
+<p>提交成功，并修改了代码：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701194409222.png" alt="image-20230701194409222"></p>
+<p>在GitHub上搜索项目时，如果你知道你所需项目的创作者，你可以这样搜索：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户名/项目名</span><br></pre></td></tr></table></figure>
+
+<p>可以更加精准地查找到你需要的项目</p>
+<h2 id="跨团队协作实践"><a href="#跨团队协作实践" class="headerlink" title="跨团队协作实践"></a>跨团队协作实践</h2><p>对于需要跨团队的用户来说，他只需要打开需要跨团队项目，点击右上角的 fork，即可在自己的账户中创建该项目的远程库。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701201136642.png" alt="image-20230701201136642"></p>
+<p>随后，该用户对自己库中的项目完成了修改：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701201220720.png" alt="image-20230701201220720"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701201238728.png" alt="image-20230701201238728"></p>
+<p>但是，此时主团队的远程库仍未更新，我们只需要让跨团队成员点击 Pull requests：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701201322543.png" alt="image-20230701201322543"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701201335659.png" alt="image-20230701201335659"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701201405293.png" alt="image-20230701201405293"></p>
+<p>这样后续就可以在主团队的账号中找到这个拉取请求（Pull requests）了。</p>
+<h2 id="SSH免密登录"><a href="#SSH免密登录" class="headerlink" title="SSH免密登录"></a>SSH免密登录</h2><p>我们除了上面HTTPS的方式实现克隆、拉取、推送外，我们还可以通过SSH来实现这些功能。</p>
+<p>SSH是一种网络协议，用于计算机之间的加密登录。通过SSH，可以把所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。利用SSH协议可以有效防止远程管理过程中的信息泄露问题。相比telnet，SSH更加安全可靠。您可以使用SSH协议来远程连接到其他计算机，以便在远程计算机上执行命令或操作文件。</p>
+<p>这里提示我们还未配置：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701202521253.png" alt="image-20230701202521253"></p>
+<p>点击头像，选择设置：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701202539464.png" alt="image-20230701202539464"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701202559649.png" alt="image-20230701202559649"></p>
+<p>标题任意，密钥的获取教程如下：</p>
+<p>打开C盘，进入 User 目录，进入你的账户名称下的目录，会看到一个.ssh的文件：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701202721757.png" alt="image-20230701202721757"></p>
+<p>我们不要进入该.ssh，直接在当前目录右击选择 Git Bash，并输入如下指令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &lt;邮箱&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>ssh-keygen</code> ssh密钥生成命令</p>
+<p><code>-t</code> 使用哪一种加密算法生成</p>
+<p><code>rsa</code> 非对称加密协议</p>
+<p><code>-C &lt;邮箱&gt;</code> 描述</p>
+<p>输入后再按三下回车即可：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701203122967.png" alt="image-20230701203122967"></p>
+<p>此时，.ssh目录下出现了3个文件：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701203204515.png" alt="image-20230701203204515"></p>
+<p>我们可以直接查看 id_rsa.pub，或者通过 cd .ssh，然后 cat id_rsa.pub的方式来获取里面的内容，这个就是我们的ssh密钥了(它是以你刚才输入的邮箱结尾的)</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701203319455.png" alt="image-20230701203319455"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701203517248.png" alt="image-20230701203517248"></p>
+<p>接下来，我们通过SSH的方式来实现拉取和推送：</p>
+<p>首先在远程库中找到SSH地址：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701203639997.png" alt="image-20230701203639997"></p>
+<p>然后推送：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;ssh地址&gt; &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230701203834531.png" alt="image-20230701203834531"></p>
+<p>输入 yes</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701204004441.png" alt="image-20230701204004441"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701204016105.png" alt="image-20230701204016105"></p>
+<p>拉取：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &lt;ssh地址&gt; &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们先修改一下远程库的hello.txt内容：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701204048921.png" alt="image-20230701204048921"></p>
+<p>然后调用指令拉取：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701204148400.png" alt="image-20230701204148400"></p>
+<blockquote>
+<p>有概率443，重试即可。</p>
+</blockquote>
+<p>查看一下本地的hello.txt：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701204218124.png" alt="image-20230701204218124"></p>
+<p>有修改的内容。</p>
+<h1 id="IDEA-操作-Git"><a href="#IDEA-操作-Git" class="headerlink" title="IDEA 操作 Git"></a>IDEA 操作 Git</h1><h2 id="配置-Git-忽略文件"><a href="#配置-Git-忽略文件" class="headerlink" title="配置 Git 忽略文件"></a>配置 Git 忽略文件</h2><p>我们创建 IDEA 项目时，会自动生成很多没必要的文件：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701204440204.png" alt="image-20230701204440204"></p>
+<p>这些文件与项目的实际功能无关，不参与服务器上部署运行，把它们忽略掉能够屏蔽IDE工具之间差异。</p>
+<p><strong>忽略实现方案</strong></p>
+<ol>
+<li>创建忽略规则文件 ： xxxx.ignore，一般建议是 git.ignore，我们可以在刚才你的用户文件夹下创建这个文件，然后复制下面内容。</li>
+</ol>
+<p>下面是该文件内容的通用模板：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Compiled class file</span></span><br><span class="line">*.class</span><br><span class="line"></span><br><span class="line"><span class="comment"># Log file</span></span><br><span class="line">*.<span class="built_in">log</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># BlueJ files</span></span><br><span class="line">*.ctxt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Mobile Tools for Java (J2ME)</span></span><br><span class="line">.mtj.tmp/<span class="comment"># Package Files #</span></span><br><span class="line">*.jar</span><br><span class="line">*.war</span><br><span class="line">*.nar</span><br><span class="line">*.ear</span><br><span class="line">*.zip</span><br><span class="line">*.tar.gz</span><br><span class="line">*.rar</span><br><span class="line"></span><br><span class="line">hs_err_pid*</span><br><span class="line"></span><br><span class="line">.classpath</span><br><span class="line">.project</span><br><span class="line">.settings</span><br><span class="line">target</span><br><span class="line">.idea</span><br><span class="line">*.iml</span><br></pre></td></tr></table></figure>
+
+<p>虽然写好了忽略文件，但是Git此时还不知道这个文件，因此我们要修改配置。</p>
+<p>点开同目录下的.gitconfig文件，在[core]栏下加上下面的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">excludesfile = &lt;你刚才git.ignore的地址&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：地址中的斜杆要使用 ‘ &#x2F; ‘</p>
+</blockquote>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701210151822.png" alt="image-20230701210151822"></p>
+<h2 id="IDEA-配置-Git"><a href="#IDEA-配置-Git" class="headerlink" title="IDEA 配置 Git"></a>IDEA 配置 Git</h2><p>接下来我们在 IDEA 中配置 Git：</p>
+<p>打开 IDEA，点击设置-&gt;版本控制-&gt;Git-&gt;选择你的git的安装路径：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701210335069.png" alt="image-20230701210335069"></p>
+<p>选择 bin 目录下的 git.ext：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701210430182.png" alt="image-20230701210430182"></p>
+<p>选完后，点击测试，会在下方显示Git的版本：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701210518072.png" alt="image-20230701210518072"></p>
+<blockquote>
+<p> 为了后续的介绍，我们先随便创建一个 maven 项目。</p>
+</blockquote>
+<p>要想在 IDEA 中使用 Git ，我们除了前面在射中中添加了 Git ，我们还需要在项目中添加上。</p>
+<p>点击上方的 VCS-&gt;导入到版本控制-&gt;创建Git仓库</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701211522340.png" alt="image-20230701211522340"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701211532591.png" alt="image-20230701211532591"></p>
+<p>点击确定</p>
+<p>可以看到，我们的项目中部分文件变红了：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701211556153.png" alt="image-20230701211556153"></p>
+<p>这和我们之前在 Git 中没有追踪 hello.txt 是一致的情况。</p>
+<p>我们只需要右键对应的文件，然后选择 Git，点击添加即可：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701211717641.png" alt="image-20230701211717641"></p>
+<p>对应项目中出现了.git文件：<br><img src="/Shirly.github.io/Git.assets/image-20230701212000838.png" alt="image-20230701212000838"></p>
+<p>现在变绿了：<br><img src="/Shirly.github.io/Git.assets/image-20230701211736201.png" alt="image-20230701211736201"></p>
+<p>当然这样太麻烦了，我们也可以直接将整个项目进行添加和提交到本地库。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701211846250.png" alt="image-20230701211846250"></p>
+<p>项目中灰色的文件是被我们之前设置的忽略文件：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701212026497.png" alt="image-20230701212026497"></p>
+<h2 id="版本切换"><a href="#版本切换" class="headerlink" title="版本切换"></a>版本切换</h2><p>这里我又提交了两次，并分别命名为 ：second commit 和 third commit。</p>
+<p>然后我们点击项目左下角的 git ，并选择日志：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701212748999.png" alt="image-20230701212748999"></p>
+<p>这里的黄色箭头就是指向我们当前项目的版本，我们可以右键选择切换版本。</p>
+<h2 id="创建分支和切换分支"><a href="#创建分支和切换分支" class="headerlink" title="创建分支和切换分支"></a>创建分支和切换分支</h2><p>方法1：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701213418764.png" alt="image-20230701213418764"></p>
+<p>方法2：</p>
+<p>点击下方的分支名：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701213449115.png" alt="image-20230701213449115"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701213457057.png" alt="image-20230701213457057"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701213542240.png" alt="image-20230701213542240"></p>
+<p>勾上签出分支，就会自动切换到 hot-fix 分支。</p>
+<p>创建出新的分支后，若要切换回master分支，只需要再点击右下角的hot-fix，然后选择master，选择检出：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701213719032.png" alt="image-20230701213719032"></p>
+<h2 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h2><p><strong>正常合并</strong></p>
+<p>在 hot-fix分支下多写了一行代码并提交：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701214033699.png" alt="image-20230701214033699"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701214051775.png" alt="image-20230701214051775"></p>
+<p>我们切换回master分支，然后将其合并：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701214142748.png" alt="image-20230701214142748"></p>
+<p>合并后，master分支的代码也和 hot-fix 同步了：<br><img src="/Shirly.github.io/Git.assets/image-20230701214210762.png" alt="image-20230701214210762"></p>
+<p><strong>冲突合并</strong></p>
+<p>我们分别在 hot-fix 和 master 中都修改代码并提交：<br><img src="/Shirly.github.io/Git.assets/image-20230701214708954.png" alt="image-20230701214708954"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701214743603.png" alt="image-20230701214743603"></p>
+<p>然后我们按照上面同样的方式，用hot-fix合并 master：</p>
+<p>弹出如下界面：</p>
+<p>左边是master分支的修改，右边是hot-fix分支的修改：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701214832071.png" alt="image-20230701214832071"></p>
+<p>两边的符号的含义如下：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701214934465.png" alt="image-20230701214934465"></p>
+<p>在我们确认合并结果后点击应用：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701215004283.png" alt="image-20230701215004283"></p>
+<p>日志状态：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230701215012744.png" alt="image-20230701215012744"></p>
+<p>#IDEA集成GitHub</p>
+<h2 id="IDEA登录GitHub"><a href="#IDEA登录GitHub" class="headerlink" title="IDEA登录GitHub"></a>IDEA登录GitHub</h2><p>在 IDEA 中点击设置-&gt;版本控制 -&gt;GitHub：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702152543465.png" alt="image-20230702152543465"></p>
+<p>这里我们可以直接通过账号密码登录：</p>
+<p>会发现这种方式能难成功登录。<img src="/Shirly.github.io/Git.assets/image-20230702152634162.png" alt="image-20230702152634162"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702152650352.png" alt="image-20230702152650352"></p>
+<p>我们可以通过访问令牌（Token）的方式登录：</p>
+<p>打开GitHub，点击头像-&gt;Setting-&gt;开发者设置-&gt;个人访问令牌-&gt;新建个人访问令牌（经典），生成一个令牌，这个令牌要将所有权限都开启。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702153412833.png"></p>
+<p>生成成功后，记得用一个文件保存令牌，因为我们刷新页面后将无法再看到：</p>
+<p>回到IDEA中将访问令牌输入进去，访问成功：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702153609708.png" alt="image-20230702153609708"></p>
+<h2 id="分享代码到GitHub"><a href="#分享代码到GitHub" class="headerlink" title="分享代码到GitHub"></a>分享代码到GitHub</h2><p>在IDEA中分享代码可以自动将当前项目在 GitHub 上创建远程库并推送。</p>
+<p>在IDEA中按照如下图所示点击：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702154024054.png" alt="image-20230702154024054"></p>
+<p>会弹出如下窗口：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702154132633.png" alt="image-20230702154132633"></p>
+<p>你可以设置远程库的名称，远程库的别名，远程库是否私有和描述等。</p>
+<p>完成设置后点击 Share，一段时间后便完成了项目分享到GitHub</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702154244199.png" alt="image-20230702154244199"></p>
+<h2 id="推送代码到GitHub"><a href="#推送代码到GitHub" class="headerlink" title="推送代码到GitHub"></a>推送代码到GitHub</h2><p>操作如图：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155057406.png" alt="image-20230702155057406"></p>
+<p>我们现在本地中对代码做一些修改：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155214392.png" alt="image-20230702155214392"></p>
+<p>完成常规的对本地库的追踪提交，后按照上图推送的操作进行：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155432505.png" alt="image-20230702155432505"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155441559.png" alt="image-20230702155441559"></p>
+<h2 id="IDEA-拉取代码"><a href="#IDEA-拉取代码" class="headerlink" title="IDEA 拉取代码"></a>IDEA 拉取代码</h2><p>我们先在远程库中对代码做一些修改：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155541035.png" alt="image-20230702155541035"></p>
+<p>然后回到IDEA，进行如下操作：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155603681.png" alt="image-20230702155603681"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155633967.png" alt="image-20230702155633967"></p>
+<p>可以看到代码拉取成功：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155650017.png" alt="image-20230702155650017"></p>
+<blockquote>
+<p> 注意：拉取代码之前，一定要确认自己本地代码是未修改的，否则拉取代码下来会导致冲突，本地修改的代码可能会消失。</p>
+</blockquote>
+<p><strong>ssh实现推送和拉取</strong></p>
+<p>我们之前配置了ssh，现在来使用它的地址来实现上述功能：</p>
+<p>打开推送功能：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155855938.png" alt="image-20230702155855938"></p>
+<p>点击上面的git-test，然后选择定义远程：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155916972.png" alt="image-20230702155916972"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702155922337.png" alt="image-20230702155922337"></p>
+<p>这里我们起名叫做：ssh-git（任意，方便辨别就行）</p>
+<p>然后我们到GitHub上找到项目的 ssh 地址：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702160102772.png" alt="image-20230702160102772"></p>
+<p>你就可以按照之前的教程对ssh的地址进行操作了。</p>
+<h2 id="克隆代码"><a href="#克隆代码" class="headerlink" title="克隆代码"></a>克隆代码</h2><p>我们现在要把远程库中的代码克隆到本地。操作如下：<img src="/Shirly.github.io/Git.assets/image-20230702160533018.png" alt="image-20230702160533018"></p>
+<p>你可以直接输入URL来复制，</p>
+<p>这里的URL一般公司会直接提供它们远程库中的地址，我们现在可以从自己的远程库中选择一个URL，复制粘贴过来即可。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702160935486.png" alt="image-20230702160935486"></p>
+<p>若该项目的远程库在你的GitHub账户上，你也可以直接点击你的账户，然后克隆对应的项目</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702161032177.png" alt="image-20230702161032177"></p>
+<h2 id="（码云）Gitee-操作"><a href="#（码云）Gitee-操作" class="headerlink" title="（码云）Gitee 操作"></a>（码云）Gitee 操作</h2><p>Gitee是国内的开源代码托管平台，类似于GitHub国内版（，相较于GitHub,由于是国内的平台，它在推送代码拉取代码等行为会比GitHub更流畅，受网络影响小。</p>
+<p>类似于GitHub,我们先去Gitee上注册一个账号，然后你可以顺便绑定一下你的GitHub，方便你的登录操作。</p>
+<p>码云的页面和GitHub类似，你也可以自由地创建仓库，上传代码。</p>
+<p>我们可以提前创建一个空的远程库叫做 git-test。便于你后面的推送拉取操作。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702162630238.png" alt="image-20230702162630238"></p>
+<p>回到IDEA，我们要先下载 Gitee 的插件：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702162726079.png" alt="image-20230702162726079"></p>
+<p>安装完成后，我们重启IDEA，就可以在VCS中看到 Gitee 的图标了。</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702162809552.png" alt="image-20230702162809552"></p>
+<p>剩下的操作和GitHub类似，你可以分享代码、推送代码、拉取代码、克隆代码到你的远程库or你的本地库中，只是把操作从GitHub改成Gitee而已。</p>
+<h2 id="将GitHub的远程库复制到Gitee"><a href="#将GitHub的远程库复制到Gitee" class="headerlink" title="将GitHub的远程库复制到Gitee"></a>将GitHub的远程库复制到Gitee</h2><p>我们创建一个新的仓库时，若是希望将GitHub上的项目复制到Gitee上，我们可以点击下图中的链接：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702163558955.png" alt="image-20230702163558955"></p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702163658049.png" alt="image-20230702163658049"></p>
+<p>我们可以直接输入GitHub上项目对应的HTTPS协议的URL来导入仓库，若你绑定了GitHub账号，你也可以直接点击’’导入 GitHub 仓库’’ 来直接导入你需要的远程库。</p>
+<p>我们将GitHub上的 gitinit 远程库导入到Gitee上。</p>
+<p><strong>同步更新</strong></p>
+<p>我们在GitHub上的远程库中修改了代码，我们若希望在Gitee上同步修改，只需要点击Gitee对应远程库中名称右边的符号：<img src="/Shirly.github.io/Git.assets/image-20230702164026350.png" alt="image-20230702164026350"></p>
+<p>等待片刻即可实现更新。</p>
+<h1 id="GitLab"><a href="#GitLab" class="headerlink" title="GitLab"></a>GitLab</h1><p>GitLab 是一个自建代码托管平台。其使用 Git 作为代码管理工具。是使用 MIT 许可证的基于网络的 Git 仓库管理工具。</p>
+<p><a target="_blank" rel="noopener" href="https://about.gitlab.com/">The DevSecOps Platform | GitLab</a></p>
+<p>打开GitLab官网，然后选择 install：</p>
+<p><img src="/Shirly.github.io/Git.assets/image-20230702170103037.png" alt="image-20230702170103037"></p>
+<blockquote>
+<p>注意：这里需要提前购买服务器来使用，或者你安装一个虚拟机</p>
+</blockquote>
+<p>这里我们往下拉，选择 CentOS7，当然你选择你对应的服务器版本即可。</p>
+<p>将这行命令放到服务器的&#x2F;opt&#x2F;module下安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash</span><br></pre></td></tr></table></figure>
+
+<p><img src="/Shirly.github.io/Git.assets/image-20230702170338573.png" alt="image-20230702170338573"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://fangmoyu.github.io/Shirly.github.io/">老方</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://fangmoyu.github.io/2023/08/04/%E9%80%9A%E7%94%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/Git/">https://fangmoyu.github.io/2023/08/04/%E9%80%9A%E7%94%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF/Git/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://fangmoyu.github.io" target="_blank">摸鱼的老方</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/Shirly.github.io/./image/animaImage/7.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Shirly.github.io/2023/08/04/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/SpringMVC%E7%AC%94%E8%AE%B0/" title="SpringMVC学习笔记"><img class="cover" src="/Shirly.github.io/./image/27.png" onerror="onerror=null;src='/Shirly.github.io/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SpringMVC学习笔记</div></div></a></div><div class="next-post pull-right"><a href="/Shirly.github.io/2023/03/28/%E6%AC%A2%E8%BF%8E/" title="欢迎"><img class="cover" src="/Shirly.github.io/./image/22.png" onerror="onerror=null;src='/Shirly.github.io/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">欢迎</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/Shirly.github.io/./image/MyAvatar.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">老方</div><div class="author-info__description">你好，欢迎访问我的博客，目前各项功能还在施工完善中，敬请期待</div></div><div class="card-info-data site-data is-center"><a href="/Shirly.github.io/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/Shirly.github.io/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/Shirly.github.io/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FangMoyu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/FangMoyu" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://map.baidu.com" target="_blank" title="地图"><i class="fa-solid fa-location-dot"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎访问我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E4%BB%8B%E7%BB%8D"><span class="toc-text">Git介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E5%92%8C%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">集中式版本控制系统和分布式版本控制系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">集中式版本控制系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">分布式版本控制系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="toc-text">Git 工作机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1%E4%B8%AD%E5%BF%83"><span class="toc-text">代码托管中心</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8"><span class="toc-text">快速入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">Git 常用命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%96%87%E4%BB%B6"><span class="toc-text">修改文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E7%A9%BF%E6%A2%AD"><span class="toc-text">版本穿梭</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-text">Git分支操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="toc-text">分支操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6"><span class="toc-text">分支合并</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C"><span class="toc-text">团队协作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitHub%E6%93%8D%E4%BD%9C"><span class="toc-text">GitHub操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="toc-text">远程库操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E5%86%85%E5%8D%8F%E4%BD%9C%E5%AE%9E%E8%B7%B5"><span class="toc-text">团队内协作实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E5%AE%9E%E8%B7%B5"><span class="toc-text">跨团队协作实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="toc-text">SSH免密登录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IDEA-%E6%93%8D%E4%BD%9C-Git"><span class="toc-text">IDEA 操作 Git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-Git-%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6"><span class="toc-text">配置 Git 忽略文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA-%E9%85%8D%E7%BD%AE-Git"><span class="toc-text">IDEA 配置 Git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2"><span class="toc-text">版本切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E5%92%8C%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-text">创建分支和切换分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="toc-text">合并分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA%E7%99%BB%E5%BD%95GitHub"><span class="toc-text">IDEA登录GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E4%BA%AB%E4%BB%A3%E7%A0%81%E5%88%B0GitHub"><span class="toc-text">分享代码到GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%E5%88%B0GitHub"><span class="toc-text">推送代码到GitHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IDEA-%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-text">IDEA 拉取代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E4%BB%A3%E7%A0%81"><span class="toc-text">克隆代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89Gitee-%E6%93%8D%E4%BD%9C"><span class="toc-text">（码云）Gitee 操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86GitHub%E7%9A%84%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%A4%8D%E5%88%B6%E5%88%B0Gitee"><span class="toc-text">将GitHub的远程库复制到Gitee</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GitLab"><span class="toc-text">GitLab</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8EHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 搭建博客教程"><img src="/Shirly.github.io/./image/3.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="Hexo 搭建博客教程"/></a><div class="content"><a class="title" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E5%9F%BA%E4%BA%8EHexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="Hexo 搭建博客教程">Hexo 搭建博客教程</a><time datetime="2024-03-04T01:12:48.012Z" title="发表于 2024-03-04 09:12:48">2024-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E6%8E%A5%E5%8F%A3API%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0/" title="接口 API 开放平台笔记"><img src="/Shirly.github.io/./image/22.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="接口 API 开放平台笔记"/></a><div class="content"><a class="title" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E6%8E%A5%E5%8F%A3API%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0/" title="接口 API 开放平台笔记">接口 API 开放平台笔记</a><time datetime="2024-03-04T01:12:43.006Z" title="发表于 2024-03-04 09:12:43">2024-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E6%99%BA%E8%83%BD%20BI%20%E9%A1%B9%E7%9B%AE/" title="智能 BI 项目实现记录"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="智能 BI 项目实现记录"/></a><div class="content"><a class="title" href="/Shirly.github.io/2024/03/04/%E5%B0%8F%E6%96%B9%E7%9A%84%E9%A1%B9%E7%9B%AE/%E6%99%BA%E8%83%BD%20BI%20%E9%A1%B9%E7%9B%AE/" title="智能 BI 项目实现记录">智能 BI 项目实现记录</a><time datetime="2024-03-04T01:12:31.966Z" title="发表于 2024-03-04 09:12:31">2024-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2024/02/16/%E6%97%A5%E5%B8%B8%E5%B0%8F%E8%AE%B0/%E6%B8%B8%E6%88%8F%E7%94%BB%E9%9D%A2%E5%8D%A1%E6%AD%BB%20Nvddmkm%200%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="缓解游戏画面卡死，显卡掉驱动问题"><img src="/Shirly.github.io/./image/animaImage/7.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="缓解游戏画面卡死，显卡掉驱动问题"/></a><div class="content"><a class="title" href="/Shirly.github.io/2024/02/16/%E6%97%A5%E5%B8%B8%E5%B0%8F%E8%AE%B0/%E6%B8%B8%E6%88%8F%E7%94%BB%E9%9D%A2%E5%8D%A1%E6%AD%BB%20Nvddmkm%200%20%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="缓解游戏画面卡死，显卡掉驱动问题">缓解游戏画面卡死，显卡掉驱动问题</a><time datetime="2024-02-16T13:49:27.000Z" title="发表于 2024-02-16 21:49:27">2024-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Shirly.github.io/2023/12/08/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Spring%E5%8E%9F%E7%90%86%E4%B9%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%92%8CIOC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="循环依赖和 IOC 生命周期"><img src="/Shirly.github.io/./image/22.png" onerror="this.onerror=null;this.src='/Shirly.github.io/img/404.jpg'" alt="循环依赖和 IOC 生命周期"/></a><div class="content"><a class="title" href="/Shirly.github.io/2023/12/08/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Spring%E5%8E%9F%E7%90%86%E4%B9%8B%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%92%8CIOC%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" title="循环依赖和 IOC 生命周期">循环依赖和 IOC 生命周期</a><time datetime="2023-12-08T11:24:27.000Z" title="发表于 2023-12-08 19:24:27">2023-12-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/Shirly.github.io/./image/4.png')"><div id="footer-wrap"><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好，欢迎来到我的博客😊!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/Shirly.github.io/js/utils.js"></script><script src="/Shirly.github.io/js/main.js"></script><script src="/Shirly.github.io/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div><script src="/Shirly.github.io/js/search/local-search.js"></script></div></body></html>
