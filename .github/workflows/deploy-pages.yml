@@ -1,5 +1,7 @@
 name: Deploy Next.js to GitHub Pages
 
+# GitHub Pages source: GitHub Actions (the build artifact is the published site).
+
 on:
   push:
     branches: [main]
