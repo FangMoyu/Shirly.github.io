@@ -28,9 +28,9 @@ button:disabled { cursor: default; }
   max-width: 960px;
   min-height: 100vh;
   margin: 0 auto;
-  background: var(--paper);
+  /* Let the canvas continue through the shell so the page never reads as a card. */
+  background: transparent;
   color: var(--ink);
-  box-shadow: 0 0 72px 18px rgba(255, 253, 247, .56);
 }
 .site-header {
   display: flex;
@@ -327,7 +327,7 @@ button:disabled { cursor: default; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 @media (max-width: 540px) {
-  .site-shell { max-width: none; box-shadow: none; }
+  .site-shell { max-width: none; }
   .site-header { padding: 20px 23px; }
   .brand-name { font-size: 13px; }
   .header-note { display: none; }
