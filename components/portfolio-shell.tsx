@@ -36,7 +36,7 @@ function ProductVisual({ item }: { item: PortfolioItem }) {
     return (
       <span className="mini-browser" aria-hidden="true">
         <span className="mini-toolbar"><span className="mini-dots">•••</span><span>StudyMark · learning notes</span></span>
-        <Image className="mini-banner" src="/hero-approved.jpg" alt="" width={600} height={250} sizes="285px" />
+        <Image className="mini-banner" src="/Shirly.github.io/hero-approved.jpg" alt="" width={600} height={250} sizes="285px" />
         <span className="mini-content">
           <span className="mini-heading">给学习，留一个复习标记。</span>
           <span className="mini-line" />
@@ -253,7 +253,7 @@ export function PortfolioShell({ items }: PortfolioShellProps) {
       </header>
 
       <figure className="hero">
-        <Image className="hero-art" src="/hero-approved.jpg" alt="海边列车窗边的夏日阅读场景" width={1774} height={887} loading="eager" sizes="100vw" />
+        <Image className="hero-art" src="/Shirly.github.io/hero-approved.jpg" alt="海边列车窗边的夏日阅读场景" width={1774} height={887} loading="eager" sizes="100vw" />
         <div className="hero-copy">
           <div className="hero-label">STARDUST&apos;S SUMMER DIARY</div>
           <h1>把平凡的日子，<br />过成<span>喜欢的番。</span></h1>
