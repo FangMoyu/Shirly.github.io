@@ -213,6 +213,7 @@ button:disabled { cursor: default; }
 
 .card-cover-studymark { background: #e7f0f3; }
 .card-cover-thunder-like { background: #f5eae0; }
+.card-cover-prompt-toolbox { background: #eeeaf3; }
 .mini-browser {
   width: 100%;
   max-width: clamp(230px, 31.25vw, 300px);
@@ -245,6 +246,65 @@ button:disabled { cursor: default; }
 .memo-label { display: block; color: #a27d60; font-size: clamp(8px, 1.09vw, 10px); letter-spacing: .12em; }
 .memo-title { display: block; margin-top: 8px; color: #725b46; font: clamp(16px, 2.17vw, 21px)/1.8 "Songti SC", SimSun, serif; }
 .memo-task { display: block; margin-top: 7px; color: #9b8a78; font-size: clamp(9px, 1.22vw, 12px); }
+
+.prompt-toolbox-panel {
+  display: block;
+  width: 100%;
+  max-width: clamp(230px, 31.25vw, 300px);
+  overflow: hidden;
+  border: 1px solid #d9d3e4;
+  border-radius: 7px;
+  background: #fffefa;
+  box-shadow: 0 10px 16px #5f527b18;
+  transform: rotate(-2deg);
+}
+.prompt-toolbox-toolbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e7e1ec;
+  color: #80758e;
+  font: 8px/1.5 ui-monospace, Consolas, monospace;
+}
+.prompt-toolbox-dots { color: #aaa1b6; letter-spacing: 2px; }
+.prompt-toolbox-local { justify-self: end; color: #9d8eae; font-size: 7px; letter-spacing: .11em; }
+.prompt-toolbox-body { display: grid; grid-template-columns: 42px minmax(0, 1fr); min-height: 137px; }
+.prompt-toolbox-sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  padding: 15px 8px 9px;
+  background: #eeeaf3;
+}
+.prompt-toolbox-sidebar i { width: 11px; height: 11px; border: 1px solid #a9a0b6; border-radius: 3px; }
+.prompt-toolbox-sidebar i.active { border-color: #7f7097; background: #8f80a5; }
+.prompt-toolbox-sidebar small { margin-top: auto; color: #8f82a0; font: 7px ui-monospace, Consolas, monospace; }
+.prompt-toolbox-main { display: flex; min-width: 0; flex-direction: column; padding: 11px 12px 9px; }
+.prompt-toolbox-search {
+  padding: 6px 8px;
+  border: 1px solid #e2dce8;
+  border-radius: 4px;
+  color: #aaa0b3;
+  font: 8px/1.4 ui-monospace, Consolas, monospace;
+}
+.prompt-toolbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #73677f;
+}
+.prompt-toolbox-row.active { border-color: #ddd5e6; background: #f3eff6; }
+.prompt-toolbox-row b { font: 10px/1.4 "Microsoft YaHei", sans-serif; }
+.prompt-toolbox-row small { color: #a093ac; font: 7px ui-monospace, Consolas, monospace; }
+.prompt-toolbox-shortcut { margin-top: auto; padding-top: 8px; color: #9c91a7; font: 7px/1.4 ui-monospace, Consolas, monospace; }
+.prompt-toolbox-shortcut i { padding: 2px 4px; border: 1px solid #d8d0e0; border-radius: 3px; font-style: normal; }
 
 .skill-panel, .article-panel, .about-panel {
   position: relative;
@@ -386,6 +446,10 @@ button:disabled { cursor: default; }
   .memo-title { font-size: 16px; }
   .memo-label { font-size: 8px; }
   .memo-task { font-size: 9px; }
+  .prompt-toolbox-panel { max-width: 210px; }
+  .prompt-toolbox-body { grid-template-columns: 36px minmax(0, 1fr); min-height: 124px; }
+  .prompt-toolbox-sidebar { gap: 9px; padding: 13px 7px 8px; }
+  .prompt-toolbox-main { padding: 9px 10px 8px; }
   .detail-layout { grid-template-columns: 1fr; gap: 20px; padding: 18px; }
   .detail-cover { min-height: 170px; }
   .detail-heading h2 { font-size: 27px; }

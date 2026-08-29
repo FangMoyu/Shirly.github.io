@@ -82,6 +82,17 @@ const productItems: PortfolioItem[] = [
     tone: "blue",
     repository: "https://github.com/FangMoyu/thunder-like",
   },
+  {
+    id: "prompt-toolbox",
+    category: "products",
+    title: "Prompt Toolbox",
+    meta: "03 / 本地桌面工具 · Tauri",
+    description: "把提示词保存、分类、填写变量并快速复制，数据留在本机，常用内容随时复用。",
+    kicker: "LOCAL FIRST / PROMPT LIBRARY",
+    coverLines: ["把提示词，", "收进工具箱。"],
+    tone: "writing",
+    repository: "https://github.com/FangMoyu/prompt-toolbox",
+  },
 ];
 
 const skillItems: PortfolioItem[] = [

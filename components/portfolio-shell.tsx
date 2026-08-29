@@ -56,6 +56,33 @@ function ProductVisual({ item }: { item: PortfolioItem }) {
       </span>
     );
   }
+  if (item.id === "prompt-toolbox") {
+    return (
+      <span className="prompt-toolbox-panel" aria-hidden="true">
+        <span className="prompt-toolbox-toolbar">
+          <span className="prompt-toolbox-dots">•••</span>
+          <span>Prompt Toolbox</span>
+          <span className="prompt-toolbox-local">LOCAL</span>
+        </span>
+        <span className="prompt-toolbox-body">
+          <span className="prompt-toolbox-sidebar">
+            <i className="active" /><i /><i /><i />
+            <small>PT</small>
+          </span>
+          <span className="prompt-toolbox-main">
+            <span className="prompt-toolbox-search">⌕ Search prompts</span>
+            <span className="prompt-toolbox-row active">
+              <b>代码审查</b><small>{"{{language}}"}</small>
+            </span>
+            <span className="prompt-toolbox-row">
+              <b>技术文章</b><small>{"{{topic}}"}</small>
+            </span>
+            <span className="prompt-toolbox-shortcut"><i>⌘</i> Alt + Space</span>
+          </span>
+        </span>
+      </span>
+    );
+  }
   return <Cover item={item} />;
 }
 
