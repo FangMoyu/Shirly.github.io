@@ -11,7 +11,8 @@ const categories: Array<{ id: Category; label: string; number: string; heading: 
   { id: "products", label: "产品", number: "01", heading: "把想法，做成小作品。", description: "来自 GitHub 的项目与探索。" },
   { id: "skills", label: "Skills", number: "02", heading: "让好方法，可以重复使用。", description: "把长期学习整理成可复用的工具。" },
   { id: "articles", label: "文章", number: "03", heading: "把值得的事，慢慢写下来。", description: "三篇 Markdown 草稿，先从这里开始。" },
-  { id: "about", label: "关于我", number: "04", heading: "你好，很高兴在这里遇见你。", description: "关于这个小站，也关于屏幕另一边的人。" },
+  { id: "murmurs", label: "碎碎念", number: "04", heading: "把小事，写成轻轻的一句话。", description: "近况、短句和还没长成文章的想法。" },
+  { id: "about", label: "关于我", number: "05", heading: "你好，很高兴在这里遇见你。", description: "关于这个小站，也关于屏幕另一边的人。" },
 ];
 
 function Cover({ item, detail = false }: { item: PortfolioItem; detail?: boolean }) {
@@ -176,10 +177,27 @@ function AboutVisual({ item }: { item: PortfolioItem }) {
   );
 }
 
+function MurmurVisual({ item }: { item: PortfolioItem }) {
+  return (
+    <span className="murmur-panel" aria-hidden="true">
+      <span className="murmur-tape" />
+      <span className="murmur-kicker">{item.kicker}</span>
+      <span className="murmur-copy">
+        {item.coverLines.map((line, index) => (
+          <span key={item.id + "-murmur-" + index}>{line}</span>
+        ))}
+      </span>
+      <span className="murmur-rule" /><span className="murmur-rule short" />
+      <span className="murmur-foot"><i>✦</i> NEXT NOTE / SOMEDAY</span>
+    </span>
+  );
+}
+
 function CardVisual({ item, detail = false }: { item: PortfolioItem; detail?: boolean }) {
   if (item.category === "products") return <ProductVisual item={item} />;
   if (item.category === "skills") return <SkillVisual item={item} />;
   if (item.category === "articles") return <ArticleVisual item={item} />;
+  if (item.category === "murmurs") return <MurmurVisual item={item} />;
   return <AboutVisual item={item} />;
 }
 

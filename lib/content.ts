@@ -3,7 +3,7 @@ import path from "node:path";
 import { marked } from "marked";
 import sanitizeHtml from "sanitize-html";
 
-export type Category = "products" | "skills" | "articles" | "about";
+export type Category = "products" | "skills" | "articles" | "murmurs" | "about";
 export type Tone = "blue" | "book" | "repo" | "writing";
 
 export type PortfolioItem = {
@@ -131,6 +131,26 @@ const skillItems: PortfolioItem[] = [
   },
 ];
 
+const murmurItems: PortfolioItem[] = [
+  {
+    id: "murmur-first-page",
+    category: "murmurs",
+    title: "这里先留一页",
+    meta: "01 / 碎碎念 · 待续",
+    description: "不必写成长文章，想到什么，就在这里留下一点。",
+    kicker: "SMALL NOTES / TO BE CONTINUED",
+    coverLines: ["想到什么，", "就写一点。"],
+    tone: "book",
+    intro: "碎碎念的位置已经准备好了。以后遇到值得记住的小事，就慢慢放进来。",
+    sections: [
+      {
+        title: "可能会写什么",
+        text: "学习近况、开发时踩过的坑、看完一部动画后的念头，还有那些不必写成长文章的小事。",
+      },
+    ],
+  },
+];
+
 const aboutItems: PortfolioItem[] = [
   {
     id: "about-stardust",
@@ -185,6 +205,6 @@ function readArticles(): PortfolioItem[] {
 }
 
 export function getPortfolioItems(): PortfolioItem[] {
-  return [...productItems, ...skillItems, ...readArticles(), ...aboutItems];
+  return [...productItems, ...skillItems, ...readArticles(), ...murmurItems, ...aboutItems];
 }
 

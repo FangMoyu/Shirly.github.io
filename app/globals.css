@@ -124,7 +124,7 @@ button:disabled { cursor: default; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .category-nav button {
   display: flex;
@@ -214,6 +214,7 @@ button:disabled { cursor: default; }
 .card-cover-studymark { background: #e7f0f3; }
 .card-cover-thunder-like { background: #f5eae0; }
 .card-cover-prompt-toolbox { background: #eeeaf3; }
+.card-cover-murmur-first-page { background: #f4ece5; }
 .mini-browser {
   width: 100%;
   max-width: clamp(230px, 31.25vw, 300px);
@@ -373,7 +374,27 @@ button:disabled { cursor: default; }
 .life-sun { display: block; color: #be8c65; font-size: 19px; }
 .life-title { display: block; margin-top: 7px; color: #8d806f; font: 26px/1.35 Georgia, serif; }
 .life-list { display: grid; gap: 8px; margin-top: 17px; padding-top: 13px; border-top: 1px solid #e8dac8; color: #a18c77; font: 10px/1.5 ui-monospace, Consolas, monospace; }
-.detail-cover .skill-panel, .detail-cover .article-panel, .detail-cover .about-panel { max-width: 250px; }
+.murmur-panel {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: clamp(210px, 28.53vw, 274px);
+  padding: clamp(25px, 3.4vw, 33px) clamp(20px, 2.72vw, 26px) clamp(19px, 2.58vw, 25px);
+  border: 1px solid #e4d7ca;
+  border-radius: 3px;
+  background: #fffefa;
+  color: #9c7658;
+  box-shadow: 6px 8px 0 #e9dacb;
+  transform: rotate(2deg);
+}
+.murmur-tape { position: absolute; top: -8px; left: calc(50% - 31px); width: 62px; height: 17px; background: #c8bda485; transform: rotate(-3deg); }
+.murmur-kicker { display: block; color: #a98568; font-size: clamp(7px, .95vw, 9px); letter-spacing: .14em; line-height: 1.6; }
+.murmur-copy { display: grid; gap: 2px; margin-top: 17px; color: #7e654f; font: clamp(18px, 2.45vw, 23px)/1.75 "Songti SC", SimSun, serif; }
+.murmur-rule { display: block; width: 88%; height: 3px; margin-top: 15px; border-radius: 3px; background: #eee2d7; }
+.murmur-rule.short { width: 57%; margin-top: 7px; }
+.murmur-foot { display: block; margin-top: 19px; color: #b09984; font: 8px/1.5 ui-monospace, Consolas, monospace; letter-spacing: .04em; }
+.murmur-foot i { margin-right: 5px; color: #b9845c; font-style: normal; }
+.detail-cover .skill-panel, .detail-cover .article-panel, .detail-cover .about-panel, .detail-cover .murmur-panel { max-width: 250px; }
 
 .detail { padding-bottom: 14px; }
 .back-button {
@@ -427,7 +448,7 @@ button:disabled { cursor: default; }
   .hero-copy h1 { margin: 15px 0 11px; font-size: 30px; line-height: 1.65; }
   .hero-caption { top: 209px; right: 15px; bottom: auto; padding: 5px 8px; font-size: 10px; }
   .category-banner { padding: 0 15px; }
-  .category-nav button { gap: 0; padding: 21px 3px 18px; font-size: 18px; }
+  .category-nav button { gap: 0; padding: 21px 1px 18px; font-size: clamp(14px, 4.3vw, 18px); }
   .category-nav small { display: none; }
   .content { padding: 25px 22px 0; }
   .section-header { gap: 10px; padding-bottom: 19px; }
@@ -450,6 +471,8 @@ button:disabled { cursor: default; }
   .prompt-toolbox-body { grid-template-columns: 36px minmax(0, 1fr); min-height: 124px; }
   .prompt-toolbox-sidebar { gap: 9px; padding: 13px 7px 8px; }
   .prompt-toolbox-main { padding: 9px 10px 8px; }
+  .murmur-panel { max-width: 190px; padding: 25px 20px 19px; }
+  .murmur-copy { font-size: 18px; }
   .detail-layout { grid-template-columns: 1fr; gap: 20px; padding: 18px; }
   .detail-cover { min-height: 170px; }
   .detail-heading h2 { font-size: 27px; }
