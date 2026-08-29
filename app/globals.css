@@ -9,7 +9,7 @@
 }
 
 * { box-sizing: border-box; }
-html { background: #e9eeec; }
+html { overflow-x: clip; background: #e9eeec; }
 body {
   margin: 0;
   overflow-x: clip;
