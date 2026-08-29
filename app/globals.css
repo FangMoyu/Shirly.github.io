@@ -1,0 +1,371 @@
+:root {
+  --paper: #fffdf7;
+  --ink: #304958;
+  --muted: #71818a;
+  --blue: #397899;
+  --coral: #c18067;
+  --rule: #e2e7e6;
+  --card-rule: #e1e8e8;
+}
+
+* { box-sizing: border-box; }
+html { background: #f2f4f2; }
+body {
+  margin: 0;
+  background: #f2f4f2;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+button, a { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+
+.site-shell {
+  width: 100%;
+  max-width: 960px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+}
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 21px 32px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-mark {
+  width: 31px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #adcad4;
+  border-radius: 10px 10px 10px 2px;
+  color: var(--blue);
+  font: italic 28px/1 Georgia, serif;
+}
+.brand-name { font-size: 14px; letter-spacing: .05em; }
+.brand-sub { margin-top: 3px; color: var(--muted); font-size: 10px; letter-spacing: .12em; }
+.header-note { color: #7d8c91; font-size: 11px; letter-spacing: .06em; }
+
+.hero { position: relative; margin: 0; isolation: isolate; background: #dceef7; }
+.hero-art { display: block; width: 100%; height: clamp(355px, 48.23vw, 463px); object-fit: cover; object-position: center 49%; }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(237,247,249,.85), rgba(237,247,249,.57) 34%, rgba(237,247,249,0) 66%);
+}
+.hero-copy {
+  position: absolute;
+  top: clamp(47px, 6.39vw, 61px);
+  left: clamp(40px, 5.43vw, 52px);
+  z-index: 2;
+  max-width: clamp(340px, 46.2vw, 443px);
+  color: #274f67;
+}
+.hero-label { display: flex; align-items: center; gap: 9px; font-size: clamp(11px, 1.5vw, 14px); letter-spacing: .12em; }
+.hero-label::before { content: ""; width: 16px; height: 1px; background: #497d96; }
+.hero-copy h1 {
+  margin: 19px 0 15px;
+  font: 400 clamp(37px, 5.03vw, 48px)/1.7 "Songti SC", "Noto Serif CJK SC", SimSun, Georgia, serif;
+  letter-spacing: .03em;
+}
+.hero-copy h1 span { color: var(--blue); }
+.hero-copy p { margin: 0; color: #4e7385; font-size: clamp(12px, 1.63vw, 15px); line-height: 2; }
+.hero-caption {
+  position: absolute;
+  right: clamp(24px, 3.26vw, 31px);
+  bottom: clamp(19px, 2.58vw, 25px);
+  z-index: 2;
+  padding: clamp(7px, .95vw, 9px) clamp(11px, 1.5vw, 14px);
+  border-radius: 2px;
+  background: #fffdf5eb;
+  color: #2e5b6c;
+  font-size: clamp(11px, 1.5vw, 14px);
+  letter-spacing: .04em;
+}
+
+.category-banner { padding: 0 clamp(32px, 4.35vw, 42px); border-bottom: 1px solid #dae6e7; background: #f0f6f5; }
+.category-nav { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.category-nav button {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  padding: clamp(25px, 3.4vw, 33px) 5px clamp(23px, 3.13vw, 30px);
+  border: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  background: none;
+  color: #8c9ca3;
+  font-size: clamp(22px, 2.99vw, 29px);
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+.category-nav button:hover { color: var(--blue); }
+.category-nav button[aria-pressed="true"] { border-bottom-color: var(--coral); color: var(--ink); }
+.category-nav small { font: 10px ui-monospace, Consolas, monospace; letter-spacing: 0; }
+
+.content { padding: clamp(30px, 4.08vw, 39px) clamp(32px, 4.35vw, 42px) 0; }
+.section-header { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding-bottom: 22px; }
+.section-header h2 {
+  margin: 0;
+  font: 400 clamp(23px, 3.13vw, 30px)/1.5 "Songti SC", "Noto Serif CJK SC", SimSun, Georgia, serif;
+}
+.section-header p { margin: 6px 0 0; color: #7d8b91; font-size: 11px; line-height: 1.9; }
+.section-index { flex: none; color: #8a999e; font: 11px ui-monospace, Consolas, monospace; }
+.card-list { display: grid; gap: 18px; }
+.showcase-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 45% minmax(0, 1fr);
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--card-rule);
+  border-radius: 13px;
+  background: #fff;
+  color: var(--ink);
+  text-align: left;
+  text-decoration: none;
+  box-shadow: 0 3px 9px #3a5a6505;
+  transition: border-color .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+.showcase-card:not(:disabled):hover {
+  border-color: #aac7d0;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px #3a5a650b;
+}
+.showcase-card:disabled { cursor: default; }
+.showcase-card:disabled:hover { border-color: var(--card-rule); transform: none; box-shadow: 0 3px 9px #3a5a6505; }
+.card-cover {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: clamp(212px, 28.8vw, 276px);
+  place-items: center;
+  padding: clamp(24px, 3.26vw, 31px);
+  overflow: hidden;
+  border-radius: 12px 0 0 12px;
+  background: #ebf0f2;
+}
+.card-cover::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: transparent; }
+.card-index { position: absolute; top: 13px; left: 15px; color: #6b8692; font: 10px ui-monospace, Consolas, monospace; }
+.cover { display: flex; width: 100%; max-width: 192px; flex-direction: column; align-items: flex-start; color: #3f667a; }
+.cover-book { color: #a57f5c; }
+.cover-repo { color: #698a79; }
+.cover-writing { color: #8a7c9b; }
+.cover-kicker { font-size: 8px; letter-spacing: .15em; line-height: 1.6; }
+.cover-title {
+  display: block;
+  margin-top: 16px;
+  font: 400 28px/1.6 "Songti SC", SimSun, serif;
+}
+.cover-title > span { display: block; }
+.cover-rule { width: 35px; height: 1px; margin-top: 18px; background: currentColor; }
+.card-info { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; justify-content: center; padding: clamp(25px, 3.4vw, 33px) clamp(27px, 3.67vw, 35px); }
+.card-meta { color: #7d9099; font-size: clamp(10px, 1.36vw, 13px); letter-spacing: .04em; line-height: 1.7; }
+.card-title { display: block; margin-top: 9px; font-size: clamp(23px, 3.13vw, 30px); font-weight: 500; line-height: 1.5; letter-spacing: -.03em; }
+.card-description { display: block; margin-top: 9px; color: #75878f; font-size: clamp(12px, 1.63vw, 16px); line-height: 1.9; }
+.card-action { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 20px; margin-top: clamp(22px, 2.99vw, 29px); color: var(--blue); font-size: clamp(11px, 1.5vw, 14px); }
+.card-arrow { font-size: 17px; }
+.showcase-card-pending .card-action { color: #8a999e; }
+.showcase-card-pending .card-arrow { display: none; }
+.showcase-card-pending .card-action::after { content: "预留"; padding: 2px 6px; border: 1px solid #e5e9e9; border-radius: 4px; font-size: 10px; }
+
+.card-cover-studymark { background: #e7f0f3; }
+.card-cover-thunder-like { background: #f5eae0; }
+.mini-browser {
+  width: 100%;
+  max-width: clamp(230px, 31.25vw, 300px);
+  overflow: hidden;
+  border: 1px solid #d5e2e7;
+  border-radius: 6px;
+  background: #fffdf7;
+  box-shadow: 0 9px 14px #47758c13;
+  transform: rotate(-3deg);
+}
+.mini-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 7px 9px; color: #7a8d95; font-size: 8px; }
+.mini-dots { letter-spacing: 2px; color: #99afb9; }
+.mini-banner { display: block; width: 100%; height: clamp(76px, 10.33vw, 99px); object-fit: cover; object-position: center 49%; }
+.mini-content { display: block; padding: 11px 12px; }
+.mini-heading { display: block; color: #397899; font: clamp(10px, 1.36vw, 13px)/1.7 "Songti SC", SimSun, serif; }
+.mini-line { display: block; width: 85%; height: 3px; margin-top: 7px; border-radius: 2px; background: #e7eceb; }
+.mini-line-short { width: 58%; }
+.memo {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: clamp(190px, 25.82vw, 248px);
+  padding: clamp(23px, 3.13vw, 30px) clamp(19px, 2.58vw, 25px) clamp(18px, 2.45vw, 24px);
+  border-radius: 3px;
+  background: #fffefa;
+  box-shadow: 5px 7px 0 #e8d9c7;
+  transform: rotate(3deg);
+}
+.memo-tape { position: absolute; top: -7px; left: calc(50% - 28px); width: 56px; height: 16px; background: #cbbfa680; transform: rotate(-4deg); }
+.memo-label { display: block; color: #a27d60; font-size: clamp(8px, 1.09vw, 10px); letter-spacing: .12em; }
+.memo-title { display: block; margin-top: 8px; color: #725b46; font: clamp(16px, 2.17vw, 21px)/1.8 "Songti SC", SimSun, serif; }
+.memo-task { display: block; margin-top: 7px; color: #9b8a78; font-size: clamp(9px, 1.22vw, 12px); }
+
+.skill-panel, .article-panel, .about-panel {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: clamp(230px, 31.25vw, 300px);
+  overflow: hidden;
+  border: 1px solid #d5e2e7;
+  border-radius: 6px;
+  background: #fffdf7;
+  box-shadow: 0 9px 14px #47758c13;
+}
+.skill-panel { padding: 17px 18px 16px; color: #668476; transform: rotate(-2deg); }
+.skill-panel-top { display: flex; justify-content: space-between; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid #e1e9e7; color: #7a8d95; font: 9px/1.5 ui-monospace, Consolas, monospace; letter-spacing: .02em; }
+.skill-tree-row { display: flex; align-items: center; gap: 9px; margin-top: 13px; color: #6c8479; font: 11px/1.5 ui-monospace, Consolas, monospace; }
+.skill-tree-row i { width: 10px; height: 8px; display: inline-block; border: 1px solid #91b1a2; border-radius: 1px; }
+.skill-tree-row em { margin-left: auto; color: #a2b5ab; font-style: normal; font-size: 9px; }
+.skill-tree-root { color: #456c5a; }
+.skill-tree-root i { width: 8px; height: 8px; border-radius: 50%; background: #89ab9b; }
+.skill-panel-foot { display: flex; align-items: center; gap: 7px; margin-top: 16px; padding-top: 11px; border-top: 1px solid #e1e9e7; color: #7f9b8b; font: 9px/1.5 ui-monospace, Consolas, monospace; }
+.skill-dot { width: 5px; height: 5px; border-radius: 50%; background: #7eaa91; }
+.skill-panel-questions { padding: 17px 18px 20px; color: #9b7d5d; background: #fffefa; transform: rotate(2deg); }
+.skill-panel-questions .skill-panel-top { color: #aa8b6b; border-color: #eee2d5; }
+.question-row { display: grid; grid-template-columns: 22px minmax(0,1fr) 13px; gap: 8px; align-items: center; margin-top: 16px; color: #856b51; font: 12px/1.6 \"Songti SC\", SimSun, serif; }
+.question-row b { color: #b69878; font: 10px ui-monospace, Consolas, monospace; }
+.question-row i { color: #a77a58; font: 12px ui-monospace, Consolas, monospace; font-style: normal; }
+.question-row.muted { color: #ad9b87; }
+.question-track { display: flex; gap: 6px; margin-top: 18px; }
+.question-track i { display: block; height: 3px; flex: 1; border-radius: 3px; background: #e4d6c6; }
+.question-track i:first-child { background: #b99770; }
+.skill-panel-flow { padding: 17px 18px; color: #7a7197; background: #fffefa; transform: rotate(-2deg); }
+.flow-node { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; padding: 9px 11px; border: 1px solid #ded8ea; border-radius: 3px; color: #71618e; font: 13px/1.5 \"Songti SC\", SimSun, serif; }
+.flow-node small { color: #aaa1bd; font: 9px ui-monospace, Consolas, monospace; }
+.flow-arrow { display: block; margin: 4px auto 0; color: #aa9dc1; text-align: center; font-size: 13px; }
+.article-panel { padding: 18px 20px 17px; background: #fffefa; color: #5d7e92; transform: rotate(-2deg); }
+.article-panel-window { background: #edf3f4; }
+.article-toolbar { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid #dce6e8; color: #8aa2ab; font: 9px ui-monospace, Consolas, monospace; }
+.article-kicker { display: block; margin-top: 17px; color: #78929f; font-size: 9px; letter-spacing: .13em; }
+.article-headline { display: block; margin-top: 14px; color: #4b7185; font: 20px/1.7 \"Songti SC\", SimSun, serif; }
+.article-line { display: block; width: 92%; height: 3px; margin-top: 13px; border-radius: 3px; background: #d2e0e2; }
+.article-line.short { width: 67%; margin-top: 7px; }
+.article-progress { display: block; height: 5px; margin-top: 19px; border-radius: 4px; background: #d4e0e1; }
+.article-progress i { display: block; width: 64%; height: 100%; border-radius: inherit; background: #80a7b3; }
+.article-foot { display: block; margin-top: 14px; color: #8ea2a8; font: 9px ui-monospace, Consolas, monospace; }
+.article-panel-paper { padding: 24px 20px 20px; background: #fffefa; color: #a57f5c; transform: rotate(2deg); }
+.paper-tape { position: absolute; top: -7px; left: calc(50% - 28px); width: 56px; height: 16px; background: #cbbfa680; transform: rotate(-4deg); }
+.paper-quote { display: block; margin-top: 21px; color: #a47e5c; font: 18px/1.9 \"Songti SC\", SimSun, serif; }
+.paper-rule { display: block; width: 86%; height: 3px; margin-top: 13px; border-radius: 3px; background: #eee2d4; }
+.paper-rule.short { width: 54%; margin-top: 7px; }
+.paper-code { display: block; margin-top: 18px; color: #b2977b; font: 9px ui-monospace, Consolas, monospace; }
+.article-panel-map { padding: 22px 20px; background: #f0eef7; color: #81749a; transform: rotate(-2deg); }
+.map-title { display: block; margin-top: 19px; color: #766a92; font: 19px/1.6 \"Songti SC\", SimSun, serif; }
+.map-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 7px; margin-top: 18px; }
+.map-grid i { height: 22px; border: 1px solid #c3bad5; border-radius: 2px; background: #fffefa; }
+.map-grid i:nth-child(2), .map-grid i:nth-child(5) { background: #d7d0e3; }
+.map-caption { display: block; margin-top: 17px; color: #9c91ad; font-size: 10px; line-height: 1.6; }
+.about-panel { padding: 22px 21px 19px; min-height: 180px; background: #edf4f4; color: #60879a; transform: rotate(-2deg); }
+.about-panel-profile { display: grid; grid-template-columns: 62px minmax(0,1fr); gap: 10px 15px; align-items: center; }
+.profile-mark { display: grid; width: 62px; height: 62px; grid-row: span 2; place-items: center; border: 1px solid #98bbc6; border-radius: 50%; color: #4c7c91; font: italic 34px/1 Georgia, serif; }
+.profile-label { color: #7597a1; font: 10px/1.5 ui-monospace, Consolas, monospace; letter-spacing: .1em; }
+.profile-rule { display: block; height: 3px; border-radius: 3px; background: #c9dfe1; }
+.profile-rule.short { width: 68%; margin-top: -4px; }
+.profile-tags { display: flex; grid-column: 1 / -1; gap: 8px; margin-top: 7px; }
+.profile-tags i { padding: 4px 7px; border: 1px solid #bad3d6; border-radius: 3px; color: #72959d; font: 9px ui-monospace, Consolas, monospace; font-style: normal; }
+.about-panel-life { padding: 23px 22px 20px; background: #f5ede2; color: #9a8771; transform: rotate(2deg); }
+.life-sun { display: block; color: #be8c65; font-size: 19px; }
+.life-title { display: block; margin-top: 7px; color: #8d806f; font: 26px/1.35 Georgia, serif; }
+.life-list { display: grid; gap: 8px; margin-top: 17px; padding-top: 13px; border-top: 1px solid #e8dac8; color: #a18c77; font: 10px/1.5 ui-monospace, Consolas, monospace; }
+.detail-cover .skill-panel, .detail-cover .article-panel, .detail-cover .about-panel { max-width: 250px; }
+
+.detail { padding-bottom: 14px; }
+.back-button {
+  padding: 8px 0;
+  border: 0;
+  background: none;
+  color: #5a8194;
+  font-size: 12px;
+}
+.back-button:hover { color: var(--ink); }
+.detail-layout { display: grid; grid-template-columns: 36% minmax(0, 1fr); gap: 25px; align-items: center; margin-top: 19px; padding: 22px; border: 1px solid var(--card-rule); border-radius: 13px; background: #fff; }
+.detail-cover { display: grid; min-width: 0; min-height: 200px; place-items: center; padding: 21px; overflow: hidden; border-radius: 9px; background: #e7f0f3; }
+.detail-cover .cover { max-width: 220px; }
+.detail-cover .cover-title { font-size: 27px; }
+.detail-heading .detail-meta { margin-bottom: 9px; color: #8a969a; font-size: 11px; line-height: 1.7; }
+.detail-heading h2 { margin: 0; font: 400 29px/1.6 "Songti SC", "Noto Serif CJK SC", SimSun, Georgia, serif; }
+.detail-heading p { margin: 10px 0 0; color: #75878f; font-size: 13px; line-height: 1.9; }
+.markdown-body, .about-body { max-width: 560px; margin: 31px auto 0; }
+.markdown-body p, .about-body p { margin: 14px 0 0; color: #617a87; font-size: 14px; line-height: 2.1; }
+.markdown-body h2, .about-body h3 { margin: 30px 0 12px; color: var(--ink); font: 400 22px/1.7 "Songti SC", "Noto Serif CJK SC", SimSun, Georgia, serif; }
+.markdown-body h3, .about-body h3 { font-size: 18px; font-weight: 500; }
+.markdown-body ul, .markdown-body ol { margin: 18px 0; padding-left: 22px; color: #617a87; font-size: 14px; line-height: 2.1; }
+.markdown-body li { margin-top: 7px; }
+.markdown-body strong { color: #385a6c; font-weight: 600; }
+.markdown-body blockquote { margin: 23px 0; padding: 12px 19px; border-left: 3px solid #abc6cc; background: #f0f5f4; }
+.markdown-body blockquote p { margin: 0; }
+.markdown-body code { padding: 2px 5px; border-radius: 3px; background: #eef2f1; color: #496a7c; font: 12px/1.8 ui-monospace, Consolas, monospace; overflow-wrap: anywhere; }
+.markdown-body pre { margin: 22px 0; padding: 18px 20px; overflow-x: auto; border-radius: 8px; background: #eef2f1; line-height: 1.9; white-space: pre-wrap; }
+.markdown-body pre code { padding: 0; white-space: pre-wrap; }
+.markdown-body table { width: 100%; margin: 22px 0; border-collapse: collapse; table-layout: fixed; color: #617a87; font-size: 13px; }
+.markdown-body th, .markdown-body td { padding: 12px; border-bottom: 1px solid #dfe7e8; text-align: left; line-height: 1.8; overflow-wrap: anywhere; }
+.markdown-body th { background: #f0f5f4; font-weight: 500; }
+.markdown-body a, .source-link { color: var(--blue); text-underline-offset: 3px; }
+.source-link { display: inline-block; max-width: 560px; margin: 27px auto 0; font-size: 12px; }
+.source-file { max-width: 560px; margin: 13px auto 0; color: #93a0a5; font: 11px ui-monospace, Consolas, monospace; }
+.about-body section { margin-top: 26px; }
+.about-body section h3 { margin: 0; }
+
+.site-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin: 32px 32px 0; padding: 23px 0; border-top: 1px solid var(--rule); color: #8a999e; font-size: 11px; }
+.site-footer span:last-child { color: #9b8170; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 540px) {
+  .site-shell { max-width: none; }
+  .site-header { padding: 20px 23px; }
+  .brand-name { font-size: 13px; }
+  .header-note { display: none; }
+  .hero-art { height: 242px; object-position: 71% center; }
+  .hero::after { display: none; }
+  .hero-copy { position: relative; top: auto; left: auto; max-width: none; padding: 25px 24px 28px; background: #edf6f8; }
+  .hero-copy h1 { margin: 15px 0 11px; font-size: 30px; line-height: 1.65; }
+  .hero-caption { top: 209px; right: 15px; bottom: auto; padding: 5px 8px; font-size: 10px; }
+  .category-banner { padding: 0 15px; }
+  .category-nav button { gap: 0; padding: 21px 3px 18px; font-size: 18px; }
+  .category-nav small { display: none; }
+  .content { padding: 25px 22px 0; }
+  .section-header { gap: 10px; padding-bottom: 19px; }
+  .section-header h2 { font-size: 22px; }
+  .section-index { font-size: 10px; }
+  .showcase-card { grid-template-columns: 1fr; }
+  .card-cover { min-height: 180px; padding: 23px 32px; border-radius: 12px 12px 0 0; }
+  .card-info { padding: 21px 24px; }
+  .card-title { font-size: 24px; }
+  .card-action { margin-top: 18px; }
+  .cover-title { margin-top: 10px; font-size: 27px; }
+  .mini-browser { max-width: 201px; }
+  .mini-banner { height: 59px; }
+  .mini-heading { font-size: 10px; }
+  .memo { max-width: 175px; padding: 23px 19px 18px; }
+  .memo-title { font-size: 16px; }
+  .memo-label { font-size: 8px; }
+  .memo-task { font-size: 9px; }
+  .detail-layout { grid-template-columns: 1fr; gap: 20px; padding: 18px; }
+  .detail-cover { min-height: 170px; }
+  .detail-heading h2 { font-size: 27px; }
+  .markdown-body, .about-body { margin-top: 27px; }
+  .source-link, .source-file { max-width: none; }
+  .site-footer { margin: 28px 22px 0; font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase-card { transition: none; }
+  .showcase-card:not(:disabled):hover { transform: none; }
+}
+
+@media (pointer: coarse) {
+  .category-nav button, .showcase-card, .back-button { min-height: 44px; }
+}
+
