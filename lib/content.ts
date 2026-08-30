@@ -157,11 +157,11 @@ const aboutItems: PortfolioItem[] = [
     category: "about",
     title: "你好，我是星尘",
     meta: "01 / 关于我 · StarDust",
-    description: "探索 Java 后端与 AI 应用，也认真对待每一杯咖啡。",
+    description: "一个习惯替所有事情寻找解法的人。",
     kicker: "HELLO, NICE TO MEET YOU",
     coverLines: ["星尘。", "很高兴遇见你。"],
     tone: "blue",
-    intro: "你好，我是星尘（StarDust），GitHub 账号是 FangMoyu，在 CSDN 上是“尽力不摆烂的阿方”。",
+    intro: "一个习惯替所有事情寻找解法的人。\n\n很能扛事，也很想赢；看起来独立，其实对真正认可的人非常重感情。\n\n会因为喜欢一个人而变得不像平时的自己，也曾因为害怕失去而亲手结束关系。\n\n现在正在学习一件以前不擅长的事情——允许世界存在不确定，允许别人有自己的选择，也允许自己在爱别人时不把自己弄丢。",
     sections: [
       { title: "我在做什么", text: "我的兴趣主要在 Java 后端与 AI 应用，也在尝试把学习和实践整理成可复用的工具与 Skill。" },
       { title: "这里会放什么", text: "做过的项目、整理过的方法、写下来的文章，以及那些值得留下来的小想法。" },
