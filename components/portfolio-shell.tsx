@@ -193,12 +193,34 @@ function MurmurVisual({ item }: { item: PortfolioItem }) {
   );
 }
 
+const visualCategoryLabels: Record<Category, string> = {
+  products: "PRODUCT",
+  skills: "SKILL",
+  articles: "ARTICLE",
+  murmurs: "NOTE",
+  about: "ABOUT",
+};
+
+function getItemNumber(item: PortfolioItem) {
+  return item.meta.match(/^(\d{2})/)?.[1] ?? item.kicker.match(/\/\s*(\d{2})\s*$/)?.[1] ?? "01";
+}
+
 function CardVisual({ item, detail = false }: { item: PortfolioItem; detail?: boolean }) {
-  if (item.category === "products") return <ProductVisual item={item} />;
-  if (item.category === "skills") return <SkillVisual item={item} />;
-  if (item.category === "articles") return <ArticleVisual item={item} />;
-  if (item.category === "murmurs") return <MurmurVisual item={item} />;
-  return <AboutVisual item={item} />;
+  const number = getItemNumber(item);
+
+  return (
+    <span className={"card-image-frame card-image-frame-" + item.category} aria-hidden="true">
+      <Image
+        className="card-image"
+        src={`/Shirly.github.io/card-covers/${item.id}.webp`}
+        alt=""
+        width={960}
+        height={640}
+        sizes={detail ? "250px" : "(max-width: 540px) 240px, 300px"}
+      />
+      <span className="card-image-label">{visualCategoryLabels[item.category]} / {number}</span>
+    </span>
+  );
 }
 
 function Card({ item, onOpen }: { item: PortfolioItem; onOpen: (item: PortfolioItem, event: MouseEvent<HTMLButtonElement>) => void }) {
@@ -208,7 +230,7 @@ function Card({ item, onOpen }: { item: PortfolioItem; onOpen: (item: PortfolioI
     <>
       <span className={"card-cover card-cover-" + item.id}>
         <CardVisual item={item} />
-        <span className="card-index">{item.meta.slice(0, 2)}</span>
+        <span className="card-index">{getItemNumber(item)}</span>
       </span>
       <span className="card-info">
         <span className="card-meta">{item.meta}</span>
