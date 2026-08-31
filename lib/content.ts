@@ -3,7 +3,7 @@ import path from "node:path";
 import { marked } from "marked";
 import sanitizeHtml from "sanitize-html";
 
-export type Category = "products" | "skills" | "articles" | "murmurs" | "about";
+export type Category = "products" | "skills" | "articles" | "essays" | "murmurs" | "about";
 export type Tone = "blue" | "book" | "repo" | "writing";
 
 export type PortfolioItem = {
@@ -56,6 +56,19 @@ const articleDefinitions = [
     coverLines: ["让复杂的事，", "先有一张图。"],
     tone: "writing" as Tone,
     sourceUrl: "https://blog.csdn.net/m0_68389211/article/details/147596416",
+  },
+];
+
+const essayDefinitions = [
+  {
+    id: "exitcode0",
+    file: "exitcode0.md",
+    title: "ExitCode0：我用了 21 天，学会不再替别人回答",
+    meta: "个人随笔 / 2026.08.31",
+    description: "我曾因为害怕得到一个 NO，提前替别人写下答案。21 天后，我开始学习允许 UNKNOWN 存在。",
+    kicker: "PERSONAL ESSAY / 01",
+    coverLines: ["允许未知，", "也允许自己。"],
+    tone: "book" as Tone,
   },
 ];
 
@@ -204,7 +217,17 @@ function readArticles(): PortfolioItem[] {
   }));
 }
 
+function readEssays(): PortfolioItem[] {
+  const directory = path.join(process.cwd(), "content", "essays");
+  return essayDefinitions.map((definition) => ({
+    ...definition,
+    category: "essays" as const,
+    sourceFile: definition.file,
+    html: renderMarkdown(fs.readFileSync(path.join(directory, definition.file), "utf8")),
+  }));
+}
+
 export function getPortfolioItems(): PortfolioItem[] {
-  return [...productItems, ...skillItems, ...readArticles(), ...murmurItems, ...aboutItems];
+  return [...productItems, ...skillItems, ...readArticles(), ...readEssays(), ...murmurItems, ...aboutItems];
 }
 

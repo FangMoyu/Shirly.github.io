@@ -11,8 +11,9 @@ const categories: Array<{ id: Category; label: string; number: string; heading: 
   { id: "products", label: "产品", number: "01", heading: "把想法，做成小作品。", description: "来自 GitHub 的项目与探索。" },
   { id: "skills", label: "Skills", number: "02", heading: "让好方法，可以重复使用。", description: "把长期学习整理成可复用的工具。" },
   { id: "articles", label: "文章", number: "03", heading: "把值得的事，慢慢写下来。", description: "三篇 Markdown 草稿，先从这里开始。" },
-  { id: "murmurs", label: "碎碎念", number: "04", heading: "把小事，写成轻轻的一句话。", description: "近况、短句和还没长成文章的想法。" },
-  { id: "about", label: "关于我", number: "05", heading: "你好，很高兴在这里遇见你。", description: "关于这个小站，也关于屏幕另一边的人。" },
+  { id: "essays", label: "个人随笔", number: "04", heading: "把无法归类的感受，认真写完。", description: "技术之外，也写下那些改变我的时刻。" },
+  { id: "murmurs", label: "碎碎念", number: "05", heading: "把小事，写成轻轻的一句话。", description: "近况、短句和还没长成文章的想法。" },
+  { id: "about", label: "关于我", number: "06", heading: "你好，很高兴在这里遇见你。", description: "关于这个小站，也关于屏幕另一边的人。" },
 ];
 
 function Cover({ item, detail = false }: { item: PortfolioItem; detail?: boolean }) {
@@ -177,6 +178,18 @@ function AboutVisual({ item }: { item: PortfolioItem }) {
   );
 }
 
+function EssayVisual() {
+  return (
+    <span className="essay-panel" aria-hidden="true">
+      <span className="essay-toolbar"><span>•••</span><span>reflection.log</span></span>
+      <span className="essay-choice"><b>YES</b><i /><b>NO</b></span>
+      <span className="essay-branch"><i /><span>OR</span><i /><span>UNKNOWN</span></span>
+      <span className="essay-rule" /><span className="essay-rule short" />
+      <span className="essay-exit">Process finished with exit code <b>0</b></span>
+    </span>
+  );
+}
+
 function MurmurVisual({ item }: { item: PortfolioItem }) {
   return (
     <span className="murmur-panel" aria-hidden="true">
@@ -197,6 +210,7 @@ function CardVisual({ item, detail = false }: { item: PortfolioItem; detail?: bo
   if (item.category === "products") return <ProductVisual item={item} />;
   if (item.category === "skills") return <SkillVisual item={item} />;
   if (item.category === "articles") return <ArticleVisual item={item} />;
+  if (item.category === "essays") return <EssayVisual />;
   if (item.category === "murmurs") return <MurmurVisual item={item} />;
   return <AboutVisual item={item} />;
 }
@@ -335,7 +349,7 @@ export function PortfolioShell({ items }: PortfolioShellProps) {
               <div className="detail-cover"><CardVisual item={selectedItem} detail /></div>
               <div className="detail-heading"><div className="detail-meta">{selectedItem.meta}</div><h2 id="detail-title">{selectedItem.title}</h2><p>{selectedItem.description}</p></div>
             </div>
-            {selectedItem.category === "articles" && selectedItem.html ? (
+            {(selectedItem.category === "articles" || selectedItem.category === "essays") && selectedItem.html ? (
               <article className="markdown-body" dangerouslySetInnerHTML={{ __html: selectedItem.html }} />
             ) : <AboutBody item={selectedItem} />}
             {selectedItem.sourceUrl && <a className="source-link" href={selectedItem.sourceUrl} target="_blank" rel="noopener noreferrer">查看原始文章 ↗</a>}

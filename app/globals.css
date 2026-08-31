@@ -124,7 +124,7 @@ button:disabled { cursor: default; }
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 .category-nav button {
   display: flex;
@@ -215,6 +215,7 @@ button:disabled { cursor: default; }
 .card-cover-thunder-like { background: #f5eae0; }
 .card-cover-prompt-toolbox { background: #eeeaf3; }
 .card-cover-murmur-first-page { background: #f4ece5; }
+.card-cover-exitcode0 { background: #ece9f1; }
 .mini-browser {
   width: 100%;
   max-width: clamp(230px, 31.25vw, 300px);
@@ -362,6 +363,27 @@ button:disabled { cursor: default; }
 .map-grid i { height: 22px; border: 1px solid #c3bad5; border-radius: 2px; background: #fffefa; }
 .map-grid i:nth-child(2), .map-grid i:nth-child(5) { background: #d7d0e3; }
 .map-caption { display: block; margin-top: 17px; color: #9c91ad; font-size: 10px; line-height: 1.6; }
+.essay-panel {
+  display: block;
+  width: 100%;
+  max-width: clamp(230px, 31.25vw, 300px);
+  overflow: hidden;
+  border: 1px solid #d9d3e3;
+  border-radius: 7px;
+  background: #fffefa;
+  color: #776a8a;
+  box-shadow: 0 9px 14px #5f527b13;
+  transform: rotate(-2deg);
+}
+.essay-toolbar { display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; border-bottom: 1px solid #e5dfeb; color: #978da4; font: 8px/1.5 ui-monospace, Consolas, monospace; }
+.essay-choice { display: grid; grid-template-columns: auto 1fr auto; gap: 11px; align-items: center; padding: 19px 20px 12px; color: #6d6180; font: 13px/1.4 ui-monospace, Consolas, monospace; }
+.essay-choice i { height: 1px; background: #d7cfdf; }
+.essay-branch { display: flex; align-items: center; gap: 8px; padding: 8px 20px 17px; color: #988aaa; font: 9px/1.4 ui-monospace, Consolas, monospace; }
+.essay-branch i { width: 8px; height: 8px; border: 1px solid #aa9cba; border-radius: 50%; }
+.essay-rule { display: block; width: 78%; height: 3px; margin: 0 20px; border-radius: 3px; background: #ddd6e5; }
+.essay-rule.short { width: 51%; margin-top: 7px; }
+.essay-exit { display: block; margin-top: 17px; padding: 10px 12px; background: #f0edf4; color: #91859f; font: 8px/1.5 ui-monospace, Consolas, monospace; }
+.essay-exit b { color: #6f8a7b; font-size: 11px; }
 .about-panel { padding: 22px 21px 19px; min-height: 180px; background: #edf4f4; color: #60879a; transform: rotate(-2deg); }
 .about-panel-profile { display: grid; grid-template-columns: 62px minmax(0,1fr); gap: 10px 15px; align-items: center; }
 .profile-mark { display: grid; width: 62px; height: 62px; grid-row: span 2; place-items: center; border: 1px solid #98bbc6; border-radius: 50%; color: #4c7c91; font: italic 34px/1 Georgia, serif; }
@@ -394,7 +416,7 @@ button:disabled { cursor: default; }
 .murmur-rule.short { width: 57%; margin-top: 7px; }
 .murmur-foot { display: block; margin-top: 19px; color: #b09984; font: 8px/1.5 ui-monospace, Consolas, monospace; letter-spacing: .04em; }
 .murmur-foot i { margin-right: 5px; color: #b9845c; font-style: normal; }
-.detail-cover .skill-panel, .detail-cover .article-panel, .detail-cover .about-panel, .detail-cover .murmur-panel { max-width: 250px; }
+.detail-cover .skill-panel, .detail-cover .article-panel, .detail-cover .essay-panel, .detail-cover .about-panel, .detail-cover .murmur-panel { max-width: 250px; }
 
 .detail { padding-bottom: 14px; }
 .back-button {
@@ -448,8 +470,8 @@ button:disabled { cursor: default; }
   .hero-copy { position: relative; top: auto; left: auto; max-width: none; padding: 25px 24px 28px; background: #edf6f8; }
   .hero-copy h1 { margin: 15px 0 11px; font-size: 30px; line-height: 1.65; }
   .hero-caption { top: 209px; right: 15px; bottom: auto; padding: 5px 8px; font-size: 10px; }
-  .category-banner { padding: 0 15px; }
-  .category-nav button { gap: 0; padding: 21px 1px 18px; font-size: clamp(14px, 4.3vw, 18px); }
+  .category-banner { padding: 0 6px; }
+  .category-nav button { gap: 0; padding: 21px 0 18px; font-size: clamp(12px, 3.6vw, 16px); white-space: nowrap; }
   .category-nav small { display: none; }
   .content { padding: 25px 22px 0; }
   .section-header { gap: 10px; padding-bottom: 19px; }
