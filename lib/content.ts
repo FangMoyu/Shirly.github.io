@@ -106,6 +106,17 @@ const productItems: PortfolioItem[] = [
     tone: "writing",
     repository: "https://github.com/FangMoyu/prompt-toolbox",
   },
+  {
+    id: "musepick",
+    category: "products",
+    title: "MusePick",
+    meta: "04 / 浏览器扩展 · JavaScript",
+    description: "选中网页 UI 元素，读取 DOM 与关键 CSS，生成可以直接交给编程 Agent 的中文实现 Prompt。",
+    kicker: "PICK / UNDERSTAND / PROMPT",
+    coverLines: ["选中界面，", "带走实现思路。"],
+    tone: "repo",
+    repository: "https://github.com/FangMoyu/MusePick",
+  },
 ];
 
 const skillItems: PortfolioItem[] = [

@@ -85,6 +85,31 @@ function ProductVisual({ item }: { item: PortfolioItem }) {
       </span>
     );
   }
+  if (item.id === "musepick") {
+    return (
+      <span className="musepick-panel" aria-hidden="true">
+        <span className="musepick-toolbar">
+          <span className="musepick-dots">•••</span>
+          <span>Pick → Prompt</span>
+          <span className="musepick-local">LOCAL</span>
+        </span>
+        <span className="musepick-workspace">
+          <span className="musepick-page">
+            <span className="musepick-page-line wide" />
+            <span className="musepick-page-line" />
+            <span className="musepick-target"><i /> <b /></span>
+            <span className="musepick-selector">button · 120 × 44</span>
+          </span>
+          <span className="musepick-prompt">
+            <span className="musepick-prompt-head"><i /> DOM + CSS</span>
+            <span className="musepick-prompt-line" />
+            <span className="musepick-prompt-line short" />
+            <span className="musepick-copy">COPY</span>
+          </span>
+        </span>
+      </span>
+    );
+  }
   return <Cover item={item} />;
 }
 
